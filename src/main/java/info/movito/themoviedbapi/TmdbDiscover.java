@@ -4,7 +4,10 @@ import info.movito.themoviedbapi.model.Discover;
 import info.movito.themoviedbapi.model.core.MovieResultsPage;
 import info.movito.themoviedbapi.tools.ApiUrl;
 
-
+/**
+ * Use {@link com.afterroot.tmdbapi.api.DiscoverApi} instead
+ */
+@Deprecated
 public class TmdbDiscover extends AbstractTmdbApi {
 
 

@@ -1,7 +1,25 @@
 package info.movito.themoviedbapi;
 
+import static org.apache.commons.lang3.StringUtils.isNotBlank;
+import static info.movito.themoviedbapi.TmdbAccount.PARAM_SESSION;
+import static info.movito.themoviedbapi.TmdbMovies.MovieMethod.videos;
+import static info.movito.themoviedbapi.Utils.asStringArray;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import info.movito.themoviedbapi.model.*;
+
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.List;
+
+import info.movito.themoviedbapi.model.AlternativeTitle;
+import info.movito.themoviedbapi.model.Credits;
+import info.movito.themoviedbapi.model.MovieImages;
+import info.movito.themoviedbapi.model.MovieTranslations;
+import info.movito.themoviedbapi.model.MoviesAlternativeTitles;
+import info.movito.themoviedbapi.model.NetworkMovie;
+import info.movito.themoviedbapi.model.ReleaseInfo;
+import info.movito.themoviedbapi.model.Translation;
+import info.movito.themoviedbapi.model.Video;
 import info.movito.themoviedbapi.model.changes.ChangesItems;
 import info.movito.themoviedbapi.model.core.IdElement;
 import info.movito.themoviedbapi.model.core.MovieResultsPage;
@@ -9,14 +27,6 @@ import info.movito.themoviedbapi.model.core.SessionToken;
 import info.movito.themoviedbapi.model.keywords.Keyword;
 import info.movito.themoviedbapi.model.providers.ProviderResults;
 import info.movito.themoviedbapi.tools.ApiUrl;
-import org.apache.commons.lang3.StringUtils;
-
-import java.util.List;
-
-import static info.movito.themoviedbapi.TmdbAccount.PARAM_SESSION;
-import static info.movito.themoviedbapi.TmdbMovies.MovieMethod.videos;
-import static info.movito.themoviedbapi.Utils.asStringArray;
-import static org.apache.commons.lang3.StringUtils.isNotBlank;
 
 
 public class TmdbMovies extends AbstractTmdbApi {
@@ -31,7 +41,7 @@ public class TmdbMovies extends AbstractTmdbApi {
 
     // account_states and rating are not included as it wouldn't work anyway because of missing session id
     // --> inject session id into tmdb-instance?
-    public static enum MovieMethod {
+    public enum MovieMethod {
         alternative_titles, credits, images, keywords, releases, release_dates,
         @Deprecated trailers,
         videos, // replacement for trailers
@@ -68,14 +78,14 @@ public class TmdbMovies extends AbstractTmdbApi {
      *
      * It will return the single highest rated poster and backdrop.
      */
-    public MovieDb getMovie(int movieId, String language, MovieMethod... appendToResponse) {
+    public NetworkMovie getMovie(int movieId, String language, MovieMethod... appendToResponse) {
         ApiUrl apiUrl = new ApiUrl(TMDB_METHOD_MOVIE, movieId);
 
         apiUrl.addLanguage(language);
 
         apiUrl.appendToResponse(asStringArray(appendToResponse));
 
-        return mapJsonResult(apiUrl, MovieDb.class);
+        return mapJsonResult(apiUrl, NetworkMovie.class);
     }
 
 
@@ -286,11 +296,11 @@ public class TmdbMovies extends AbstractTmdbApi {
     /**
      * This method is used to retrieve the newest movie that was added to TMDb.
      */
-    public MovieDb getLatestMovie() {
+    public NetworkMovie getLatestMovie() {
         ApiUrl apiUrl = new ApiUrl(TMDB_METHOD_MOVIE, MovieMethod.latest);
 
 
-        return mapJsonResult(apiUrl, MovieDb.class);
+        return mapJsonResult(apiUrl, NetworkMovie.class);
     }
 
 

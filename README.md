@@ -55,7 +55,7 @@ Most common question: Why does `getSomething()` returns null?
 
 Every API element has a number of query flags that need to be set in order to pull a particular piece of information.
 
-#### Example 1: Make `getCast()` to return cast and not `null` 
+#### Example 1: Make `getCast()` to return cast and not `null`
 
 ```
 TmdbMovies movies = tmdbApi.getMovies();
@@ -70,7 +70,7 @@ movies.getMovie(78, "en", MovieMethod.credits, MovieMethod.images, MovieMethod.s
 
 
 #### Example 3: Get all info about a sesaon
- 
+
 Instead of individual item we can also simply provide all method values.
 
 ```

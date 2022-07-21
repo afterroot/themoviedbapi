@@ -1,7 +1,7 @@
 See
 [releases](https://github.com/holgerbrandl/themoviedbapi/releases)
 for downloads and details
-    
+
 v1.10
 -----
 
@@ -78,4 +78,3 @@ v1.1
 v1.0
 ---
 - Initial release
-

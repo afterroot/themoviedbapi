@@ -34,7 +34,7 @@ git commit -am "${tmdb_version} release"
 
 git tag "${tmdb_version}"
 
-git push origin 
+git push origin
 git push origin --tags
 
 
@@ -46,6 +46,3 @@ git push origin --tags
 #./gradlew publishToSonatype closeSonatypeStagingRepository
     ./gradlew publishToSonatype closeAndReleaseSonatypeStagingRepository
 ```
-
-
-
