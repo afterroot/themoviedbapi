@@ -46,6 +46,9 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:5.0.0-alpha.10'
     implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.10'
 
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-jackson:2.9.0'
+
     implementation 'com.fasterxml.jackson.core:jackson-core:2.13.2'
     implementation 'com.fasterxml.jackson.core:jackson-annotations:2.13.2'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.2.2'
@@ -55,7 +58,9 @@ dependencies {
     // Logging
     implementation 'org.slf4j:slf4j-api:1.7.32'
     implementation 'org.apache.commons:commons-lang3:3.12.0'
-    implementation 'commons-codec:commons-codec:20041127.091804'
+    implementation 'commons-codec:commons-codec:1.15'
+
+    implementation 'androidx.room:room-runtime:2.4.2'
 
     // http tools
     api 'org.yamj:api-common:1.1'
