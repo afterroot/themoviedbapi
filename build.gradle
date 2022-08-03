@@ -8,13 +8,14 @@ repositories {
 }
 
 ext {
-    kotlin_version = '1.7.0'
+    kotlin_version = libs.versions.kotlin.get() ? libs.versions.kotlin.get() : '1.7.10'
     major = 2
     minor = 0
     patch = 0
 }
 
 android {
+    namespace 'com.afterroot.tmdbapi'
     compileSdkVersion 33
 
     defaultConfig {
