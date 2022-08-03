@@ -1,9 +1,13 @@
+/*
+ * Copyright (c) 2014, Holger Brandl
+ * All rights reserved.
+ */
+
 package info.movito.themoviedbapi
 
 import com.fasterxml.jackson.annotation.JsonProperty
 import info.movito.themoviedbapi.model.core.AbstractJsonMapping
 import info.movito.themoviedbapi.tools.ApiUrl
-import java.sql.Types
 
 class TmdbTimezones internal constructor(tmdbApi: TmdbApi?) : AbstractTmdbApi(tmdbApi!!) {
     val timezones: TimeZones

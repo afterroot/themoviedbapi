@@ -1,12 +1,18 @@
+/*
+ * Copyright (c) 2014, Holger Brandl
+ * All rights reserved.
+ */
+
 package info.movito.themoviedbapi.model.changes;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import info.movito.themoviedbapi.model.core.IdElement;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import info.movito.themoviedbapi.model.core.IdElement;
 
 
 public class ChangedItem extends IdElement {

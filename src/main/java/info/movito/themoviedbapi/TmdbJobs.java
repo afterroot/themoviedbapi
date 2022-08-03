@@ -1,11 +1,17 @@
+/*
+ * Copyright (c) 2014, Holger Brandl
+ * All rights reserved.
+ */
+
 package info.movito.themoviedbapi;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.List;
+
 import info.movito.themoviedbapi.model.JobDepartment;
 import info.movito.themoviedbapi.model.core.AbstractJsonMapping;
 import info.movito.themoviedbapi.tools.ApiUrl;
-
-import java.util.List;
 
 
 public class TmdbJobs extends AbstractTmdbApi {

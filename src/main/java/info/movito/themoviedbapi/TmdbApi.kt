@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2014, Holger Brandl
+ * All rights reserved.
+ */
+
 @file:Suppress("DEPRECATION")
 
 package info.movito.themoviedbapi
