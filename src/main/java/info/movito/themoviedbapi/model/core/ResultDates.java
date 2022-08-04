@@ -9,14 +9,10 @@ import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 
 public class ResultDates extends AbstractJsonMapping {
 
-
-    private static final Logger logger = LoggerFactory.getLogger(ResultDates.class);
 
     @JsonProperty("minimum")
     private String minimum = "";
@@ -52,7 +48,6 @@ public class ResultDates extends AbstractJsonMapping {
         StringBuilder sb = new StringBuilder();
         sb.append("Unknown property: '").append(key);
         sb.append("' value: '").append(value).append("'");
-        logger.trace(sb.toString());
     }
 
 

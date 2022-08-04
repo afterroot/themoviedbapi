@@ -1,12 +1,13 @@
 package info.movito.themoviedbapi;
 
-import info.movito.themoviedbapi.model.Artwork;
-import info.movito.themoviedbapi.model.CollectionInfo;
+import static org.junit.Assert.assertFalse;
+
 import org.junit.Test;
 
 import java.util.List;
 
-import static org.junit.Assert.assertFalse;
+import info.movito.themoviedbapi.model.Artwork;
+import info.movito.themoviedbapi.model.CollectionInfo;
 
 
 public class CollectionsApiTest extends AbstractTmdbApiTest {
@@ -27,3 +28,4 @@ public class CollectionsApiTest extends AbstractTmdbApiTest {
         assertFalse("No artwork found", result.isEmpty());
     }
 }
+

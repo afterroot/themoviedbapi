@@ -1,12 +1,13 @@
 package info.movito.themoviedbapi;
 
-import info.movito.themoviedbapi.model.config.TokenAuthorisation;
-import info.movito.themoviedbapi.model.config.TokenSession;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Ignore;
 import org.junit.Test;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import info.movito.themoviedbapi.model.config.TokenAuthorisation;
+import info.movito.themoviedbapi.model.config.TokenSession;
 
 
 public class AuthApiTest extends AbstractTmdbApiTest {
@@ -24,7 +25,7 @@ public class AuthApiTest extends AbstractTmdbApiTest {
 
     /**
      * Test of getSessionToken method, of class TmdbApi.
-     * 
+     * <p/>
      * TODO: Cannot be tested without a HTTP authorisation: http://help.themoviedb.org/kb/api/user-authentication
      */
     public void testGetSessionToken() throws Exception {
@@ -51,3 +52,4 @@ public class AuthApiTest extends AbstractTmdbApiTest {
 
 
 }
+

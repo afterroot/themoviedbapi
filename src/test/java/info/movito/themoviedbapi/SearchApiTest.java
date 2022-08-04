@@ -1,17 +1,25 @@
 package info.movito.themoviedbapi;
 
-import info.movito.themoviedbapi.model.*;
-import info.movito.themoviedbapi.model.core.MovieResultsPage;
-import info.movito.themoviedbapi.model.keywords.Keyword;
-import info.movito.themoviedbapi.model.people.Person;
-import info.movito.themoviedbapi.model.tv.TvSeries;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.List;
 
-import static org.junit.Assert.*;
+import info.movito.themoviedbapi.model.Collection;
+import info.movito.themoviedbapi.model.Company;
+import info.movito.themoviedbapi.model.MovieList;
+import info.movito.themoviedbapi.model.Multi;
+import info.movito.themoviedbapi.model.NetworkMovie;
+import info.movito.themoviedbapi.model.core.MovieResultsPage;
+import info.movito.themoviedbapi.model.keywords.Keyword;
+import info.movito.themoviedbapi.model.people.Person;
+import info.movito.themoviedbapi.model.tv.TvSeries;
 
 
 public class SearchApiTest extends AbstractTmdbApiTest {
@@ -23,7 +31,7 @@ public class SearchApiTest extends AbstractTmdbApiTest {
 
         MovieResultsPage movieResultsPage = search.searchMovie("What Ever Happened to Baby Jane?", null, null, false, null);
 
-        Assert.assertTrue(movieResultsPage.getResults().size() == 2);
+        assertEquals(2, movieResultsPage.getResults().size());
         Assert.assertEquals(10242, movieResultsPage.getResults().get(0).getId());
     }
 
@@ -33,8 +41,8 @@ public class SearchApiTest extends AbstractTmdbApiTest {
         // Try a movie with less than 1 page of results
         TmdbSearch search = tmdb.getSearch();
 
-        List<MovieDb> movieList = search.searchMovie("Blade Runner", 0, "", true, 0).getResults();
-//        List<MovieDb> movieList = tmdb.searchMovie("Blade Runner", "", true);
+        List<NetworkMovie> movieList = search.searchMovie("Blade Runner", 0, "", true, 0).getResults();
+//        List<NetworkMovie> movieList = tmdb.searchMovie("Blade Runner", "", true);
         assertTrue("No movies found, should be at least 1", movieList.size() > 0);
 
         // Try a russian language movie
@@ -56,10 +64,10 @@ public class SearchApiTest extends AbstractTmdbApiTest {
 
 
     @Test
-    public void testSearchCollection() throws Exception {
+    public void testSearchCollection() {
         List<Collection> result = tmdb.getSearch().searchCollection("batman", LANGUAGE_DEFAULT, 0).getResults();
 
-        assertFalse("No collections found", result == null);
+        assertNotNull("No collections found", result);
         assertTrue("No collections found", result.size() > 0);
     }
 
@@ -74,10 +82,10 @@ public class SearchApiTest extends AbstractTmdbApiTest {
 
 
     @Test
-    @Ignore
-    // Why ignored? Part of api but somehow not yet implemented.
+    @Ignore("Part of api but somehow not yet implemented.")
+    // Why ignored?
     // See https://www.themoviedb.org/talk/593409e3c3a36859ef01eddb#597124f8c3a3681608008424
-    public void testSearchList() throws Exception {
+    public void testSearchList() {
         List<MovieList> results = tmdb.getSearch().searchList("watch", LANGUAGE_DEFAULT, 0).getResults();
 
         assertFalse("No lists found", results == null);

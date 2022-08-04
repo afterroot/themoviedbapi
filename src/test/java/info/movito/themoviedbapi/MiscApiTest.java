@@ -1,20 +1,26 @@
 package info.movito.themoviedbapi;
 
-import info.movito.themoviedbapi.model.*;
-import info.movito.themoviedbapi.model.config.TmdbConfiguration;
-import info.movito.themoviedbapi.model.core.ResponseStatusException;
-import info.movito.themoviedbapi.model.keywords.Keyword;
-import info.movito.themoviedbapi.tools.WebBrowser;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.IOException;
-import java.util.Collections;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import info.movito.themoviedbapi.model.Genre;
+import info.movito.themoviedbapi.model.JobDepartment;
+import info.movito.themoviedbapi.model.NetworkMovie;
+import info.movito.themoviedbapi.model.Reviews;
+import info.movito.themoviedbapi.model.config.ImagesConfig;
+import info.movito.themoviedbapi.model.core.ResponseStatusException;
+import info.movito.themoviedbapi.model.keywords.Keyword;
 
 
 public class MiscApiTest extends AbstractTmdbApiTest {
@@ -23,7 +29,7 @@ public class MiscApiTest extends AbstractTmdbApiTest {
     @Test
     public void testConfiguration() throws IOException {
 
-        TmdbConfiguration tmdbConfig = tmdb.getConfiguration();
+        ImagesConfig tmdbConfig = tmdb.getConfiguration();
         assertNotNull("Configuration failed", tmdbConfig);
         assertTrue("No base URL", StringUtils.isNotBlank(tmdbConfig.getBaseUrl()));
         assertTrue("No backdrop sizes", tmdbConfig.getBackdropSizes().size() > 0);
@@ -54,7 +60,7 @@ public class MiscApiTest extends AbstractTmdbApiTest {
         // wait before and after to
         Utils.sleep(10000);
 
-        TmdbApi tmdb = new TmdbApi(getApiKey(), new WebBrowser(), false);
+        TmdbApi tmdb = new TmdbApi(getApiKey(), false);
 
 
         for (int i = 0; i < 50; i++) {
@@ -91,27 +97,27 @@ public class MiscApiTest extends AbstractTmdbApiTest {
     //
 
 
-    @Test
+    /*@Test TODO Update With New Discover API
     public void testDiscoverByYear() throws Exception {
 
         Discover discover = new Discover();
         discover.year(2013).language(LANGUAGE_ENGLISH);
 
-        List<MovieDb> result = tmdb.getDiscover().getDiscover(discover).getResults();
+        List<NetworkMovie> result = tmdb.getDiscover().getDiscover(discover).getResults();
         assertFalse("No movies discovered", result.isEmpty());
-    }
+    }*/
 
 
-    @Test
+    /*@Test TODO Update With New Discover API
     public void testDiscoverByKeyword() throws Exception {
         Keyword keyword = tmdb.getKeywords().getKeyword(ID_KEYWORD);
 
         Discover discover = new Discover();
         discover.withKeywords(Collections.singletonList(keyword), false).language(LANGUAGE_ENGLISH);
 
-        List<MovieDb> result = tmdb.getDiscover().getDiscover(discover).getResults();
+        List<NetworkMovie> result = tmdb.getDiscover().getDiscover(discover).getResults();
         assertFalse("No movies discovered", result.isEmpty());
-    }
+    }*/
 
 
     //
@@ -158,7 +164,7 @@ public class MiscApiTest extends AbstractTmdbApiTest {
 
     @Test
     public void testGetKeywordMovies() throws Exception {
-        List<MovieDb> result = tmdb.getKeywords().getKeywordMovies(ID_KEYWORD, LANGUAGE_DEFAULT, 0).getResults();
+        List<NetworkMovie> result = tmdb.getKeywords().getKeywordMovies(ID_KEYWORD, LANGUAGE_DEFAULT, 0).getResults();
         assertFalse("No keyword movies found", result.isEmpty());
     }
 
@@ -185,14 +191,15 @@ public class MiscApiTest extends AbstractTmdbApiTest {
     public void testGetGenreList() {
         List<Genre> result = tmdb.getGenre().getGenreList(LANGUAGE_DEFAULT);
 
-        assertTrue("No genres found", !result.isEmpty());
+        assertFalse("No genres found", result.isEmpty());
     }
 
 
     @Test
     public void testGetGenreMovies() {
-        List<MovieDb> result = tmdb.getGenre().getGenreMovies(ID_GENRE_ACTION, LANGUAGE_DEFAULT, 0, Boolean.TRUE).getResults();
+        List<NetworkMovie> result = tmdb.getGenre().getGenreMovies(ID_GENRE_ACTION, LANGUAGE_DEFAULT, 0, Boolean.TRUE).getResults();
 
-        assertTrue("No genre movies found", !result.isEmpty());
+        assertFalse("No genre movies found", result.isEmpty());
     }
 }
+

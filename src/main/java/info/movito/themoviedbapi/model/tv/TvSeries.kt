@@ -5,16 +5,15 @@
 
 package info.movito.themoviedbapi.model.tv
 
+import com.afterroot.tmdbapi.model.Genre
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonTypeInfo
 import info.movito.themoviedbapi.model.ContentRating
-import info.movito.themoviedbapi.model.Genre
 import info.movito.themoviedbapi.model.Multi
 import info.movito.themoviedbapi.model.core.ResultsPage
 import info.movito.themoviedbapi.model.people.Person
 
 /**
- * @author Sandip Vaghela
  * @author Holger Brandl
  */
 @JsonTypeInfo(use = JsonTypeInfo.Id.NONE)

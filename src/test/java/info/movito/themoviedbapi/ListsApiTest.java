@@ -1,19 +1,23 @@
 package info.movito.themoviedbapi;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static info.movito.themoviedbapi.AccountApiTest.APITESTS_ACCOUNT;
+import static info.movito.themoviedbapi.AccountApiTest.APITESTS_TOKEN;
+
 import com.google.common.base.Predicate;
 import com.google.common.collect.Iterables;
-import info.movito.themoviedbapi.model.MovieList;
-import info.movito.themoviedbapi.model.core.ResponseStatus;
-import info.movito.themoviedbapi.model.core.ResponseStatusException;
+
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.List;
 import java.util.Random;
 
-import static info.movito.themoviedbapi.AccountApiTest.APITESTS_ACCOUNT;
-import static info.movito.themoviedbapi.AccountApiTest.APITESTS_TOKEN;
-import static org.junit.Assert.*;
+import info.movito.themoviedbapi.model.MovieList;
+import info.movito.themoviedbapi.model.core.ResponseStatus;
+import info.movito.themoviedbapi.model.core.ResponseStatusException;
 
 
 public class ListsApiTest extends AbstractTmdbApiTest {
@@ -149,6 +153,7 @@ public class ListsApiTest extends AbstractTmdbApiTest {
             // according to ticket list is deleted but response is wrong
         }
     }
+
 
 
 }

@@ -5,11 +5,6 @@ import info.movito.themoviedbapi.model.NetworkMovie
 import org.junit.Assert
 import org.junit.Ignore
 import org.junit.Test
-import java.lang.Boolean
-import kotlin.Exception
-import kotlin.String
-import kotlin.Throws
-import kotlin.toString
 
 class MoviesApiTest : AbstractTmdbApiTest() {
     @Test
@@ -48,14 +43,14 @@ class MoviesApiTest : AbstractTmdbApiTest() {
         Assert.assertTrue("No cast information", people.all.size > 0)
         val name1 = "Harrison Ford"
         val name2 = "Charles Knode"
-        var foundName1 = Boolean.FALSE
-        var foundName2 = Boolean.FALSE
+        var foundName1 = false
+        var foundName2 = false
         for (person in people.all) {
             if (!foundName1 && person.name.equals(name1, ignoreCase = true)) {
-                foundName1 = Boolean.TRUE
+                foundName1 = true
             }
             if (!foundName2 && person.name.equals(name2, ignoreCase = true)) {
-                foundName2 = Boolean.TRUE
+                foundName2 = true
             }
         }
         Assert.assertTrue("Couldn't find $name1", foundName1)
