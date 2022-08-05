@@ -5,6 +5,7 @@
 
 package info.movito.themoviedbapi.model
 
+import com.afterroot.tmdbapi.model.Genre
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonTypeInfo
 import info.movito.themoviedbapi.TmdbMovies
