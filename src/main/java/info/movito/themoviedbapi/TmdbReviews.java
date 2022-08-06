@@ -5,11 +5,11 @@
 
 package info.movito.themoviedbapi;
 
+import static info.movito.themoviedbapi.TmdbMovies.TMDB_METHOD_MOVIE;
+
 import info.movito.themoviedbapi.model.Reviews;
 import info.movito.themoviedbapi.model.core.ResultsPage;
 import info.movito.themoviedbapi.tools.ApiUrl;
-
-import static info.movito.themoviedbapi.TmdbMovies.TMDB_METHOD_MOVIE;
 
 
 public class TmdbReviews extends AbstractTmdbApi {

@@ -33,7 +33,7 @@ public class TmdbCompany extends AbstractTmdbApi {
 
     /**
      * This method is used to retrieve the movies associated with a company.
-     * 
+     * <p>
      * These movies are returned in order of most recently released to oldest. The default response will return 20
      */
     public CollectionResultsPage getCompanyMovies(int companyId, String language, Integer page) {

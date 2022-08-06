@@ -17,6 +17,7 @@ import info.movito.themoviedbapi.model.core.IdElement;
 
 public class ChangedItem extends IdElement {
 
+    private final Map<String, Object> newItems = new HashMap<String, Object>();
     @JsonProperty("action")
     private String action;
     @JsonProperty("time")
@@ -25,8 +26,6 @@ public class ChangedItem extends IdElement {
     private String language;
     @JsonProperty("value")
     private Object value;
-    private final Map<String, Object> newItems = new HashMap<String, Object>();
-
 
     public String getAction() {
         return action;

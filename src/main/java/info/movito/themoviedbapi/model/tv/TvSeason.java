@@ -35,41 +35,25 @@ public class TvSeason extends AbstractTvElement {
         return airDate;
     }
 
+    public void setAirDate(String airDate) {
+        this.airDate = airDate;
+    }
 
     public String getPosterPath() {
         return posterPath;
     }
 
+    public void setPosterPath(String posterPath) {
+        this.posterPath = posterPath;
+    }
 
     public int getSeasonNumber() {
         return seasonNumber;
     }
 
-
-    public void setEpisodes(List<TvEpisode> episodes) {
-        this.episodes = episodes;
-    }
-
-
-    public void setAirDate(String airDate) {
-        this.airDate = airDate;
-    }
-
-
-    public void setPosterPath(String posterPath) {
-        this.posterPath = posterPath;
-    }
-
-
     public void setSeasonNumber(int seasonNumber) {
         this.seasonNumber = seasonNumber;
     }
-
-
-    public void setOverview(String overview) {
-        this.overview = overview;
-    }
-
 
     public List<TvEpisode> getEpisodes() {
 
@@ -77,8 +61,15 @@ public class TvSeason extends AbstractTvElement {
         return episodes;
     }
 
+    public void setEpisodes(List<TvEpisode> episodes) {
+        this.episodes = episodes;
+    }
 
     public String getOverview() {
         return overview;
+    }
+
+    public void setOverview(String overview) {
+        this.overview = overview;
     }
 }

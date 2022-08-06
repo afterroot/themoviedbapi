@@ -5,18 +5,22 @@
 
 package info.movito.themoviedbapi;
 
-import info.movito.themoviedbapi.model.MovieList;
-import info.movito.themoviedbapi.model.config.Account;
-import info.movito.themoviedbapi.model.core.*;
-import info.movito.themoviedbapi.tools.ApiUrl;
-import info.movito.themoviedbapi.tools.MovieDbException;
+import static info.movito.themoviedbapi.TmdbTV.TMDB_METHOD_TV;
+import static info.movito.themoviedbapi.TmdbTvEpisodes.TMDB_METHOD_TV_EPISODE;
+import static info.movito.themoviedbapi.TmdbTvSeasons.TMDB_METHOD_TV_SEASON;
 
 import java.util.Collections;
 import java.util.HashMap;
 
-import static info.movito.themoviedbapi.TmdbTV.TMDB_METHOD_TV;
-import static info.movito.themoviedbapi.TmdbTvEpisodes.TMDB_METHOD_TV_EPISODE;
-import static info.movito.themoviedbapi.TmdbTvSeasons.TMDB_METHOD_TV_SEASON;
+import info.movito.themoviedbapi.model.MovieList;
+import info.movito.themoviedbapi.model.config.Account;
+import info.movito.themoviedbapi.model.core.AccountID;
+import info.movito.themoviedbapi.model.core.MovieResultsPage;
+import info.movito.themoviedbapi.model.core.ResponseStatus;
+import info.movito.themoviedbapi.model.core.ResultsPage;
+import info.movito.themoviedbapi.model.core.SessionToken;
+import info.movito.themoviedbapi.tools.ApiUrl;
+import info.movito.themoviedbapi.tools.MovieDbException;
 
 
 public class TmdbAccount extends AbstractTmdbApi {
@@ -55,12 +59,6 @@ public class TmdbAccount extends AbstractTmdbApi {
         return mapJsonResult(apiUrl, MovieListResultsPage.class);
     }
 
-
-    public static class MovieListResultsPage extends ResultsPage<MovieList> {
-
-    }
-
-
     public MovieResultsPage getRatedMovies(SessionToken sessionToken, AccountID accountId, Integer page) {
         ApiUrl apiUrl = new ApiUrl(TMDB_METHOD_ACCOUNT, accountId, "rated/movies");
 
@@ -70,7 +68,6 @@ public class TmdbAccount extends AbstractTmdbApi {
 
         return mapJsonResult(apiUrl, MovieResultsPage.class);
     }
-
 
     public TvResultsPage getRatedTvSeries(SessionToken sessionToken, AccountID accountId, Integer page) {
         ApiUrl apiUrl = new ApiUrl(TMDB_METHOD_ACCOUNT, accountId, "rated/tv");
@@ -82,7 +79,6 @@ public class TmdbAccount extends AbstractTmdbApi {
         return mapJsonResult(apiUrl, TvResultsPage.class);
     }
 
-
     public TvEpisodesResultsPage getRatedEpisodes(SessionToken sessionToken, AccountID accountId, Integer page) {
         ApiUrl apiUrl = new ApiUrl(TMDB_METHOD_ACCOUNT, accountId, "rated/tv/episodes");
 
@@ -93,7 +89,6 @@ public class TmdbAccount extends AbstractTmdbApi {
         return mapJsonResult(apiUrl, TvEpisodesResultsPage.class);
     }
 
-
     /**
      * This method lets users rate a movie.
      * <p>
@@ -103,11 +98,9 @@ public class TmdbAccount extends AbstractTmdbApi {
         return postRatingInternal(sessionToken, rating, new ApiUrl(TmdbMovies.TMDB_METHOD_MOVIE, movieId, "rating"));
     }
 
-
     public boolean postTvSeriesRating(SessionToken sessionToken, Integer movieId, Integer rating) {
         return postRatingInternal(sessionToken, rating, new ApiUrl(TmdbTV.TMDB_METHOD_TV, movieId, "rating"));
     }
-
 
     public boolean postTvExpisodeRating(SessionToken sessionToken, Integer seriesId, Integer seasonNumber, Integer episodeNumber, Integer rating) {
         ApiUrl apiUrl = new ApiUrl(
@@ -119,7 +112,6 @@ public class TmdbAccount extends AbstractTmdbApi {
 
         return postRatingInternal(sessionToken, rating, apiUrl);
     }
-
 
     private boolean postRatingInternal(SessionToken sessionToken, Integer rating, ApiUrl apiUrl) {
         apiUrl.addParam(PARAM_SESSION, sessionToken);
@@ -133,14 +125,12 @@ public class TmdbAccount extends AbstractTmdbApi {
         return mapJsonResult(apiUrl, ResponseStatus.class, jsonBody).getStatusCode() == 12;
     }
 
-
     public MovieResultsPage getFavoriteMovies(SessionToken sessionToken, AccountID accountId) {
         ApiUrl apiUrl = new ApiUrl(TMDB_METHOD_ACCOUNT, accountId, "favorite/movies");
         apiUrl.addParam(PARAM_SESSION, sessionToken);
 
         return mapJsonResult(apiUrl, MovieResultsPage.class);
     }
-
 
     public TvResultsPage getFavoriteSeries(SessionToken sessionToken, AccountID accountId, Integer page) {
         ApiUrl apiUrl = new ApiUrl(TMDB_METHOD_ACCOUNT, accountId, "favorite/tv");
@@ -151,7 +141,6 @@ public class TmdbAccount extends AbstractTmdbApi {
         return mapJsonResult(apiUrl, TvResultsPage.class);
     }
 
-
     /**
      * Remove a movie from an account's favorites list.
      */
@@ -159,14 +148,12 @@ public class TmdbAccount extends AbstractTmdbApi {
         return changeFavoriteStatus(sessionToken, accountId, movieId, mediaType, true);
     }
 
-
     /**
      * Remove a movie from an account's favorites list.
      */
     public ResponseStatus removeFavorite(SessionToken sessionToken, AccountID accountId, Integer movieId, MediaType mediaType) {
         return changeFavoriteStatus(sessionToken, accountId, movieId, mediaType, false);
     }
-
 
     private ResponseStatus changeFavoriteStatus(SessionToken sessionToken, AccountID accountId, Integer movieId, MediaType mediaType, boolean isFavorite) {
         ApiUrl apiUrl = new ApiUrl(TMDB_METHOD_ACCOUNT, accountId, "favorite");
@@ -184,7 +171,6 @@ public class TmdbAccount extends AbstractTmdbApi {
         return mapJsonResult(apiUrl, ResponseStatus.class, jsonBody);
     }
 
-
     /**
      * Get the list of movies on an accounts watchlist.
      *
@@ -199,7 +185,6 @@ public class TmdbAccount extends AbstractTmdbApi {
         return mapJsonResult(apiUrl, MovieResultsPage.class);
     }
 
-
     public TvResultsPage getWatchListSeries(SessionToken sessionToken, AccountID accountId, Integer page) {
         ApiUrl apiUrl = new ApiUrl(TMDB_METHOD_ACCOUNT, accountId, "watchlist/tv");
         apiUrl.addParam(PARAM_SESSION, sessionToken);
@@ -209,7 +194,6 @@ public class TmdbAccount extends AbstractTmdbApi {
         return mapJsonResult(apiUrl, TvResultsPage.class);
     }
 
-
     /**
      * Add a movie to an account's watch list.
      */
@@ -217,14 +201,12 @@ public class TmdbAccount extends AbstractTmdbApi {
         return modifyWatchList(sessionToken, accountId, movieId, mediaType, true);
     }
 
-
     /**
      * Remove a movie from an account's watch list.
      */
     public ResponseStatus removeFromWatchList(SessionToken sessionToken, AccountID accountId, Integer movieId, MediaType mediaType) {
         return modifyWatchList(sessionToken, accountId, movieId, mediaType, false);
     }
-
 
     private ResponseStatus modifyWatchList(SessionToken sessionToken, AccountID accountId, Integer movieId, MediaType mediaType, boolean isWatched) {
         ApiUrl apiUrl = new ApiUrl(TMDB_METHOD_ACCOUNT, accountId, "watchlist");
@@ -256,6 +238,10 @@ public class TmdbAccount extends AbstractTmdbApi {
             return super.toString().toLowerCase();
         }
 
+
+    }
+
+    public static class MovieListResultsPage extends ResultsPage<MovieList> {
 
     }
 }

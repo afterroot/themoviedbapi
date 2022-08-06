@@ -6,10 +6,12 @@
 package info.movito.themoviedbapi.model.config;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import info.movito.themoviedbapi.model.core.AbstractJsonMapping;
+
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
+
+import info.movito.themoviedbapi.model.core.AbstractJsonMapping;
 
 
 public class TmdbConfiguration extends AbstractJsonMapping {
@@ -34,56 +36,45 @@ public class TmdbConfiguration extends AbstractJsonMapping {
         return backdropSizes;
     }
 
+    public void setBackdropSizes(List<String> backdropSizes) {
+        this.backdropSizes = backdropSizes;
+    }
 
     public String getBaseUrl() {
         return baseUrl;
     }
 
+    public void setBaseUrl(String baseUrl) {
+        this.baseUrl = baseUrl;
+    }
 
     public List<String> getPosterSizes() {
         return posterSizes;
     }
 
+    public void setPosterSizes(List<String> posterSizes) {
+        this.posterSizes = posterSizes;
+    }
 
     public List<String> getProfileSizes() {
         return profileSizes;
     }
 
+    public void setProfileSizes(List<String> profileSizes) {
+        this.profileSizes = profileSizes;
+    }
 
     public List<String> getLogoSizes() {
         return logoSizes;
     }
 
-
-    public String getSecureBaseUrl() {
-        return secureBaseUrl;
-    }
-
-
-    public void setBackdropSizes(List<String> backdropSizes) {
-        this.backdropSizes = backdropSizes;
-    }
-
-
-    public void setBaseUrl(String baseUrl) {
-        this.baseUrl = baseUrl;
-    }
-
-
-    public void setPosterSizes(List<String> posterSizes) {
-        this.posterSizes = posterSizes;
-    }
-
-
-    public void setProfileSizes(List<String> profileSizes) {
-        this.profileSizes = profileSizes;
-    }
-
-
     public void setLogoSizes(List<String> logoSizes) {
         this.logoSizes = logoSizes;
     }
 
+    public String getSecureBaseUrl() {
+        return secureBaseUrl;
+    }
 
     public void setSecureBaseUrl(String secureBaseUrl) {
         this.secureBaseUrl = secureBaseUrl;

@@ -7,6 +7,7 @@ package info.movito.themoviedbapi.model.core;
 
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
@@ -24,16 +25,13 @@ public class ResultDates extends AbstractJsonMapping {
         return minimum;
     }
 
-
-    public String getMaximum() {
-        return maximum;
-    }
-
-
     public void setMinimum(String minimum) {
         this.minimum = minimum;
     }
 
+    public String getMaximum() {
+        return maximum;
+    }
 
     public void setMaximum(String maximum) {
         this.maximum = maximum;

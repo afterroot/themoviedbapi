@@ -44,43 +44,13 @@ public class TmdbMovies extends AbstractTmdbApi {
     private static final String PARAM_REGION = "region";
 
 
-    // account_states and rating are not included as it wouldn't work anyway because of missing session id
-    // --> inject session id into tmdb-instance?
-    public enum MovieMethod {
-        alternative_titles, credits, images, keywords, releases, release_dates,
-        @Deprecated trailers,
-        videos, // replacement for trailers
-        translations, similar, recommendations,
-        reviews, lists, changes, latest, upcoming, now_playing, popular, top_rated,
-        watch_providers("watch/providers");
-
-        private String name;
-
-        MovieMethod() {}
-
-        MovieMethod(String name) {
-            this.name = name;
-        }
-
-        @Override
-        public String toString() {
-            if (name != null) {
-                return name;
-            }
-
-            return super.toString();
-        }
-    }
-
-
     public TmdbMovies(TmdbApi tmdbApi) {
         super(tmdbApi);
     }
 
-
     /**
      * This method is used to retrieve all of the basic movie information.
-     *
+     * <p>
      * It will return the single highest rated poster and backdrop.
      */
     public NetworkMovie getMovie(int movieId, String language, MovieMethod... appendToResponse) {
@@ -92,7 +62,6 @@ public class TmdbMovies extends AbstractTmdbApi {
 
         return mapJsonResult(apiUrl, NetworkMovie.class);
     }
-
 
     /**
      * This method is used to retrieve all of the alternative titles we have for a particular movie.
@@ -108,13 +77,11 @@ public class TmdbMovies extends AbstractTmdbApi {
         return mapJsonResult(apiUrl, MoviesAlternativeTitles.class).getTitles();
     }
 
-
     public Credits getCredits(int movieId) {
         ApiUrl apiUrl = new ApiUrl(TMDB_METHOD_MOVIE, movieId, MovieMethod.credits);
 
         return mapJsonResult(apiUrl, Credits.class);
     }
-
 
     /**
      * This method should be used when you’re wanting to retrieve all of the images for a particular movie.
@@ -127,10 +94,9 @@ public class TmdbMovies extends AbstractTmdbApi {
         return mapJsonResult(apiUrl, MovieImages.class);
     }
 
-
     /**
      * This method is used to retrieve all of the keywords that have been added to a particular movie.
-     *
+     * <p>
      * Currently, only English keywords exist.
      */
     public List<Keyword> getKeywords(int movieId) {
@@ -139,14 +105,6 @@ public class TmdbMovies extends AbstractTmdbApi {
 
         return mapJsonResult(apiUrl, KeywordResults.class).results;
     }
-
-
-    private static class KeywordResults extends IdElement {
-
-        @JsonProperty("keywords")
-        List<Keyword> results;
-    }
-
 
     /**
      * This method is used to retrieve all of the release and certification data we have for a specific movie.
@@ -160,22 +118,9 @@ public class TmdbMovies extends AbstractTmdbApi {
         return mapJsonResult(apiUrl, ReleaseInfoResults.class).results;
     }
 
-
-    public static class ReleaseInfoResults extends IdElement {
-
-        @JsonProperty("results")
-        private List<ReleaseInfo> results;
-
-
-        public List<ReleaseInfo> getResults() {
-            return results;
-        }
-    }
-
-
     /**
      * This method is used to retrieve all of the videos for a particular movie.
-     *
+     * <p>
      * Supported sites are YouTube and QuickTime.
      */
     public List<Video> getVideos(int movieId, String language) {
@@ -186,7 +131,6 @@ public class TmdbMovies extends AbstractTmdbApi {
         return mapJsonResult(apiUrl, Video.Results.class).getVideos();
     }
 
-
     /**
      * This method is used to retrieve a list of the available translations for a specific movie.
      */
@@ -196,12 +140,11 @@ public class TmdbMovies extends AbstractTmdbApi {
         return mapJsonResult(apiUrl, MovieTranslations.class).getTranslations();
     }
 
-
     /**
      * The similar movies method will let you retrieve the similar movies for a particular movie.
-     *
+     * <p>
      * This data is created dynamically but with the help of users votes on TMDb.
-     *
+     * <p>
      * The data is much better with movies that have more keywords
      */
     public MovieResultsPage getSimilarMovies(int movieId, String language, Integer page) {
@@ -216,9 +159,9 @@ public class TmdbMovies extends AbstractTmdbApi {
 
     /**
      * The recomendations movies method will let you retrieve the reccomended movies for a particular movie.
-     *
+     * <p>
      * This data is created dynamically but with the help of TMDb internal algorithm.
-     *
+     * <p>
      * The data is much better with movies that are more popular
      */
     public MovieResultsPage getRecommendedMovies(int movieId, String language, Integer page) {
@@ -230,7 +173,6 @@ public class TmdbMovies extends AbstractTmdbApi {
 
         return mapJsonResult(apiUrl, MovieResultsPage.class);
     }
-
 
     /**
      * Get the lists that the movie belongs to
@@ -247,18 +189,17 @@ public class TmdbMovies extends AbstractTmdbApi {
         return mapJsonResult(apiUrl, TmdbAccount.MovieListResultsPage.class);
     }
 
-
     /**
      * Get the changes for a specific movie id.
-     *
+     * <p>
      * Changes are grouped by key, and ordered by date in descending order.
-     *
+     * <p>
      * By default, only the last 24 hours of changes are returned.
-     *
+     * <p>
      * The maximum number of days that can be returned in a single request is 14.
-     *
+     * <p>
      * The language is present on fields that are translatable.
-     *
+     * <p>
      * TODO: DOES NOT WORK AT THE MOMENT. This is due to the "value" item changing type in the ChangeItem
      *
      * @param startDate the start date of the changes, optional
@@ -285,7 +226,7 @@ public class TmdbMovies extends AbstractTmdbApi {
      * This is not going to return full deep links, but rather, it's just enough information to display what's available where.
      * <p>
      * You can link to the provided TMDB URL to help support TMDB and provide the actual deep links to the content.
-     *
+     * <p>
      * See: <a href="https://developers.themoviedb.org/3/movies/get-movie-watch-providers">API Docs</a>
      *
      * @param movieId The MovieId to retrieve watch providers for
@@ -297,7 +238,6 @@ public class TmdbMovies extends AbstractTmdbApi {
         return mapJsonResult(apiUrl, ProviderResults.class);
     }
 
-
     /**
      * This method is used to retrieve the newest movie that was added to TMDb.
      */
@@ -308,12 +248,11 @@ public class TmdbMovies extends AbstractTmdbApi {
         return mapJsonResult(apiUrl, NetworkMovie.class);
     }
 
-
     /**
      * Get the list of upcoming movies.
-     *
+     * <p>
      * This list refreshes every day.
-     *
+     * <p>
      * The maximum number of items this list will include is 100.
      * <p>
      * See https://developers.themoviedb.org/3/movies/get-upcoming
@@ -333,10 +272,9 @@ public class TmdbMovies extends AbstractTmdbApi {
 
     }
 
-
     /**
      * This method is used to retrieve the movies currently in theatres.
-     *
+     * <p>
      * This is a curated list that will normally contain 100 movies. The default response will return 20 movies.
      */
     public MovieResultsPage getNowPlayingMovies(String language, Integer page, String region) {
@@ -353,10 +291,9 @@ public class TmdbMovies extends AbstractTmdbApi {
         return mapJsonResult(apiUrl, MovieResultsPage.class);
     }
 
-
     /**
      * This method is used to retrieve the daily movie popularity list.
-     *
+     * <p>
      * This list is updated daily. The default response will return 20 movies.
      */
     public MovieResultsPage getPopularMovies(String language, Integer page) {
@@ -369,10 +306,9 @@ public class TmdbMovies extends AbstractTmdbApi {
         return mapJsonResult(apiUrl, MovieResultsPage.class);
     }
 
-
     /**
      * This method is used to retrieve the top rated movies that have over 10 votes on TMDb.
-     *
+     * <p>
      * The default response will return 20 movies.
      */
     public MovieResultsPage getTopRatedMovies(String language, Integer page) {
@@ -384,6 +320,53 @@ public class TmdbMovies extends AbstractTmdbApi {
 
 
         return mapJsonResult(apiUrl, MovieResultsPage.class);
+    }
+
+
+    // account_states and rating are not included as it wouldn't work anyway because of missing session id
+    // --> inject session id into tmdb-instance?
+    public enum MovieMethod {
+        alternative_titles, credits, images, keywords, releases, release_dates,
+        @Deprecated trailers,
+        videos, // replacement for trailers
+        translations, similar, recommendations,
+        reviews, lists, changes, latest, upcoming, now_playing, popular, top_rated,
+        watch_providers("watch/providers");
+
+        private String name;
+
+        MovieMethod() {
+        }
+
+        MovieMethod(String name) {
+            this.name = name;
+        }
+
+        @Override
+        public String toString() {
+            if (name != null) {
+                return name;
+            }
+
+            return super.toString();
+        }
+    }
+
+    private static class KeywordResults extends IdElement {
+
+        @JsonProperty("keywords")
+        List<Keyword> results;
+    }
+
+    public static class ReleaseInfoResults extends IdElement {
+
+        @JsonProperty("results")
+        private List<ReleaseInfo> results;
+
+
+        public List<ReleaseInfo> getResults() {
+            return results;
+        }
     }
 
 

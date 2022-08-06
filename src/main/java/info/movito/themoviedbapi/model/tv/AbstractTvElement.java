@@ -6,6 +6,9 @@
 package info.movito.themoviedbapi.model.tv;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.List;
+
 import info.movito.themoviedbapi.model.Credits;
 import info.movito.themoviedbapi.model.ExternalIds;
 import info.movito.themoviedbapi.model.MovieImages;
@@ -13,8 +16,6 @@ import info.movito.themoviedbapi.model.Video;
 import info.movito.themoviedbapi.model.core.NamedIdElement;
 import info.movito.themoviedbapi.model.core.TvKeywords;
 import info.movito.themoviedbapi.model.keywords.Keyword;
-
-import java.util.List;
 
 
 public class AbstractTvElement extends NamedIdElement {
@@ -41,32 +42,29 @@ public class AbstractTvElement extends NamedIdElement {
         return credits;
     }
 
-    public ExternalIds getExternalIds() {
-        return externalIds;
+    public void setCredits(Credits c) {
+        credits = c;
     }
 
-
-    public MovieImages getImages() {
-        return images;
+    public ExternalIds getExternalIds() {
+        return externalIds;
     }
 
     public void setExternalIds(ExternalIds e) {
         externalIds = e;
     }
 
-    public void setCredits(Credits c) {
-        credits = c;
+    public MovieImages getImages() {
+        return images;
     }
-
-    public List<Video> getVideos() {
-        return videos != null ? videos.getVideos() : null;
-    }
-
 
     public void setImages(MovieImages images) {
         this.images = images;
     }
 
+    public List<Video> getVideos() {
+        return videos != null ? videos.getVideos() : null;
+    }
 
     public void setVideos(Video.Results videos) {
         this.videos = videos;

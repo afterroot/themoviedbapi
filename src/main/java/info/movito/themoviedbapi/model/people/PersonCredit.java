@@ -6,6 +6,7 @@
 package info.movito.themoviedbapi.model.people;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 import info.movito.themoviedbapi.model.core.IdElement;
 
 
@@ -57,12 +58,24 @@ public class PersonCredit extends IdElement {
         return backdropPath;
     }
 
+    public void setBackdropPath(String backdropPath) {
+        this.backdropPath = backdropPath;
+    }
+
     public Float getVoteAvg() {
         return voteAvg;
     }
 
+    public void setVoteAvg(Float voteAvg) {
+        this.voteAvg = voteAvg;
+    }
+
     public String getFirstAirDate() {
         return firstAirDate;
+    }
+
+    public void setFirstAirDate(String firstAirDate) {
+        this.firstAirDate = firstAirDate;
     }
 
     public String getSeriesName() {
@@ -73,163 +86,128 @@ public class PersonCredit extends IdElement {
         return episodeCount;
     }
 
+    public void setEpisodeCount(int episodeCount) {
+        this.episodeCount = episodeCount;
+    }
+
     public String getOverview() {
         return overview;
+    }
+
+    public void setOverview(String overview) {
+        this.overview = overview;
     }
 
     public String getLanguage() {
         return language;
     }
 
+    public void setLanguage(String language) {
+        this.language = language;
+    }
+
     public String getMediaType() {
         return mediaType;
+    }
+
+    public void setMediaType(String mediaType) {
+        this.mediaType = mediaType;
     }
 
     public String getSeriesOriginalTitle() {
         return seriesOriginalTitle;
     }
 
+    public void setSeriesOriginalTitle(String seriesOriginalTitle) {
+        this.seriesOriginalTitle = seriesOriginalTitle;
+    }
+
     public String getCharacter() {
         return character;
     }
 
+    public void setCharacter(String character) {
+        this.character = character;
+    }
 
     public String getDepartment() {
         return department;
     }
 
+    public void setDepartment(String department) {
+        this.department = department;
+    }
 
     // convenience wrapper to make api more clear
     public int getMediaId() {
         return getId();
     }
 
-
     public String getMovieOriginalTitle() {
         return movieOriginalTitle;
     }
 
+    public void setMovieOriginalTitle(String movieOriginalTitle) {
+        this.movieOriginalTitle = movieOriginalTitle;
+    }
 
     public String getMovieTitle() {
         return movieTitle;
     }
 
+    public void setMovieTitle(String movieTitle) {
+        this.movieTitle = movieTitle;
+    }
 
     public PersonType getPersonType() {
         return personType;
     }
 
+    public void setPersonType(PersonType personType) {
+        this.personType = personType;
+    }
 
     public String getPosterPath() {
         return posterPath;
     }
 
+    public void setPosterPath(String posterPath) {
+        this.posterPath = posterPath;
+    }
 
     public String getReleaseDate() {
         return releaseDate;
+    }
+
+    public void setReleaseDate(String releaseDate) {
+        this.releaseDate = releaseDate;
     }
 
     public float getPopularity() {
         return popularity;
     }
 
-    public int getVoteCount() {
-        return voteCount;
+    public void setPopularity(float popularity) {
+        this.popularity = popularity;
     }
 
-    public String getAdult() {
-        return adult;
+    public int getVoteCount() {
+        return voteCount;
     }
 
     public void setVoteCount(int voteCount) {
         this.voteCount = voteCount;
     }
 
-    public void setPopularity(float popularity) {
-        this.popularity = popularity;
+    public String getAdult() {
+        return adult;
     }
-
-    public void setLanguage(String language) {
-        this.language = language;
-    }
-
-
-    public void setEpisodeCount(int episodeCount) {
-        this.episodeCount = episodeCount;
-    }
-
-
-    public void setOverview(String overview) {
-        this.overview = overview;
-    }
-
-
-    public void setCharacter(String character) {
-        this.character = character;
-    }
-
-
-    public void setMovieOriginalTitle(String movieOriginalTitle) {
-        this.movieOriginalTitle = movieOriginalTitle;
-    }
-
-
-    public void setSeriesOriginalTitle(String seriesOriginalTitle) {
-        this.seriesOriginalTitle = seriesOriginalTitle;
-    }
-
-
-    public void setFirstAirDate(String firstAirDate) {
-        this.firstAirDate = firstAirDate;
-    }
-
-
-    public void setPosterPath(String posterPath) {
-        this.posterPath = posterPath;
-    }
-
-
-    public void setReleaseDate(String releaseDate) {
-        this.releaseDate = releaseDate;
-    }
-
-
-    public void setMovieTitle(String movieTitle) {
-        this.movieTitle = movieTitle;
-    }
-
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-
-    public void setDepartment(String department) {
-        this.department = department;
-    }
-
 
     public void setAdult(String adult) {
         this.adult = adult;
     }
 
-
-    public void setMediaType(String mediaType) {
-        this.mediaType = mediaType;
-    }
-
-
-    public void setVoteAvg(Float voteAvg) {
-        this.voteAvg = voteAvg;
-    }
-
-
-    public void setBackdropPath(String backdropPath) {
-        this.backdropPath = backdropPath;
-    }
-
-
-    public void setPersonType(PersonType personType) {
-        this.personType = personType;
+    public void setName(String name) {
+        this.name = name;
     }
 }

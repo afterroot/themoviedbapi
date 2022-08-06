@@ -6,9 +6,11 @@
 package info.movito.themoviedbapi.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import info.movito.themoviedbapi.model.core.NamedElement;
+
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
+
+import info.movito.themoviedbapi.model.core.NamedElement;
 
 
 public class Translation extends NamedElement {
@@ -28,21 +30,17 @@ public class Translation extends NamedElement {
         return englishName;
     }
 
+    public void setEnglishName(String englishName) {
+        this.englishName = englishName;
+    }
 
     public String getIsoCode() {
         return isoCode;
     }
 
-
     public void setIsoCode(String isoCode) {
         this.isoCode = isoCode;
     }
-
-
-    public void setEnglishName(String englishName) {
-        this.englishName = englishName;
-    }
-
 
     public Data getData() {
         return data;

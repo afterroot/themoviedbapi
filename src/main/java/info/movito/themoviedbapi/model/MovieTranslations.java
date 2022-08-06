@@ -6,9 +6,10 @@
 package info.movito.themoviedbapi.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import info.movito.themoviedbapi.model.core.IdElement;
 
 import java.util.List;
+
+import info.movito.themoviedbapi.model.core.IdElement;
 
 
 public class MovieTranslations extends IdElement {

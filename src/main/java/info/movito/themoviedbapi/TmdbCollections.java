@@ -5,15 +5,15 @@
 
 package info.movito.themoviedbapi;
 
+import static info.movito.themoviedbapi.model.ArtworkType.BACKDROP;
+import static info.movito.themoviedbapi.model.ArtworkType.POSTER;
+
+import java.util.List;
+
 import info.movito.themoviedbapi.model.Artwork;
 import info.movito.themoviedbapi.model.CollectionInfo;
 import info.movito.themoviedbapi.model.MovieImages;
 import info.movito.themoviedbapi.tools.ApiUrl;
-
-import java.util.List;
-
-import static info.movito.themoviedbapi.model.ArtworkType.BACKDROP;
-import static info.movito.themoviedbapi.model.ArtworkType.POSTER;
 
 
 public class TmdbCollections extends AbstractTmdbApi {
@@ -28,7 +28,7 @@ public class TmdbCollections extends AbstractTmdbApi {
 
     /**
      * This method is used to retrieve all of the basic information about a movie collection.
-     * 
+     * <p>
      * You can get the ID needed for this method by making a getMovieInfo request for the belongs_to_collection.
      */
     public CollectionInfo getCollectionInfo(int collectionId, String language) {

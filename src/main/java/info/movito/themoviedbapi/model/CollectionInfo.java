@@ -6,9 +6,10 @@
 package info.movito.themoviedbapi.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import info.movito.themoviedbapi.model.core.NamedIdElement;
 
 import java.util.List;
+
+import info.movito.themoviedbapi.model.core.NamedIdElement;
 
 
 public class CollectionInfo extends NamedIdElement {
@@ -31,36 +32,29 @@ public class CollectionInfo extends NamedIdElement {
         return backdropPath;
     }
 
+    public void setBackdropPath(String backdropPath) {
+        this.backdropPath = backdropPath;
+    }
 
     public String getOverview() {
         return overview;
     }
 
+    public void setOverview(String overview) {
+        this.overview = overview;
+    }
 
     public List<Collection> getParts() {
         return parts;
     }
 
-
-    public String getPosterPath() {
-        return posterPath;
-    }
-
-
-    public void setBackdropPath(String backdropPath) {
-        this.backdropPath = backdropPath;
-    }
-
-
-    public void setOverview(String overview) {
-        this.overview = overview;
-    }
-
-
     public void setParts(List<Collection> parts) {
         this.parts = parts;
     }
 
+    public String getPosterPath() {
+        return posterPath;
+    }
 
     public void setPosterPath(String posterPath) {
         this.posterPath = posterPath;

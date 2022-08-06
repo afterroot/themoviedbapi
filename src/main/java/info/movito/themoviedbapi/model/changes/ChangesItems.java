@@ -8,6 +8,7 @@ package info.movito.themoviedbapi.model.changes;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
@@ -20,10 +21,9 @@ import java.util.Map;
 // todo fix or remove this
 public class ChangesItems {
 
+    private final Map<String, Object> newItems = new HashMap<String, Object>();
     @JsonProperty("changes")
     private List<ChangeKeyItem> changedItems = new ArrayList<ChangeKeyItem>();
-    private final Map<String, Object> newItems = new HashMap<String, Object>();
-
 
     public List<ChangeKeyItem> getChangedItems() {
         return changedItems;

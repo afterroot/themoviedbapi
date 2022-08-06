@@ -7,10 +7,11 @@ package info.movito.themoviedbapi.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
-import info.movito.themoviedbapi.model.core.IdElement;
 
 import java.io.Serializable;
 import java.util.List;
+
+import info.movito.themoviedbapi.model.core.IdElement;
 
 @JsonRootName("content_ratings")
 public class ContentRating implements Serializable {

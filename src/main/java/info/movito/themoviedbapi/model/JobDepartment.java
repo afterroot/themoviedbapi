@@ -6,9 +6,10 @@
 package info.movito.themoviedbapi.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import info.movito.themoviedbapi.model.core.AbstractJsonMapping;
 
 import java.util.List;
+
+import info.movito.themoviedbapi.model.core.AbstractJsonMapping;
 
 
 public class JobDepartment extends AbstractJsonMapping {
@@ -24,16 +25,13 @@ public class JobDepartment extends AbstractJsonMapping {
         return department;
     }
 
-
-    public List<String> getJobs() {
-        return jobs;
-    }
-
-
     public void setDepartment(String department) {
         this.department = department;
     }
 
+    public List<String> getJobs() {
+        return jobs;
+    }
 
     public void setJobs(List<String> jobs) {
         this.jobs = jobs;

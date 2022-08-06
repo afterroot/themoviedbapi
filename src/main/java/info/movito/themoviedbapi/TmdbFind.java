@@ -14,13 +14,9 @@ public class TmdbFind extends AbstractTmdbApi {
     public static final String TMDB_METHOD_FIND = "find";
 
 
-    public enum ExternalSource {imdb_id, freebase_mid, freebase_id, tvrage_id, tvdb_id}
-
-
     TmdbFind(TmdbApi tmdbApi) {
         super(tmdbApi);
     }
-
 
     /**
      * Supported query ids are imdb, people, freebase, series. For details see     http://docs.themoviedb.apiary.io/#find
@@ -33,4 +29,7 @@ public class TmdbFind extends AbstractTmdbApi {
 
         return mapJsonResult(apiUrl, FindResults.class);
     }
+
+
+    public enum ExternalSource {imdb_id, freebase_mid, freebase_id, tvrage_id, tvdb_id}
 }

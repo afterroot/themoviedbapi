@@ -5,6 +5,8 @@
 
 package info.movito.themoviedbapi;
 
+import java.util.List;
+
 import info.movito.themoviedbapi.model.Artwork;
 import info.movito.themoviedbapi.model.ArtworkType;
 import info.movito.themoviedbapi.model.MovieImages;
@@ -14,8 +16,6 @@ import info.movito.themoviedbapi.model.people.PersonCredits;
 import info.movito.themoviedbapi.model.people.PersonPeople;
 import info.movito.themoviedbapi.tools.ApiUrl;
 import info.movito.themoviedbapi.tools.MovieDbException;
-
-import java.util.List;
 
 
 public class TmdbPeople extends AbstractTmdbApi {
@@ -30,7 +30,7 @@ public class TmdbPeople extends AbstractTmdbApi {
 
     /**
      * This method is used to retrieve all of the basic person information.
-     * 
+     * <p>
      * It will return the single highest rated profile image.
      */
     public PersonPeople getPersonInfo(int personId, String... appendToResponse) {
@@ -45,7 +45,7 @@ public class TmdbPeople extends AbstractTmdbApi {
 
     /**
      * This method is used to retrieve all of the cast & crew information for the person.
-     * 
+     * <p>
      * It will return the single highest rated poster for each movie record.
      */
     public PersonCredits getCombinedPersonCredits(int personId) {
@@ -67,13 +67,13 @@ public class TmdbPeople extends AbstractTmdbApi {
 
     /**
      * Get the changes for a specific person id.
-     * 
+     * <p>
      * Changes are grouped by key, and ordered by date in descending order.
-     * 
+     * <p>
      * By default, only the last 24 hours of changes are returned.
-     * 
+     * <p>
      * The maximum number of days that can be returned in a single request is 14.
-     * 
+     * <p>
      * The language is present on fields that are translatable.
      */
     public void getPersonChanges(int personId, String startDate, String endDate) {
@@ -83,7 +83,7 @@ public class TmdbPeople extends AbstractTmdbApi {
 
     /**
      * Get the list of popular people on The Movie Database.
-     * 
+     * <p>
      * This list refreshes every day.
      */
     public PersonResultsPage getPersonPopular(Integer page) {
@@ -94,12 +94,6 @@ public class TmdbPeople extends AbstractTmdbApi {
         return mapJsonResult(apiUrl, PersonResultsPage.class);
     }
 
-
-    public static class PersonResultsPage extends ResultsPage<Person> {
-
-    }
-
-
     /**
      * Get the latest person id.
      */
@@ -108,5 +102,9 @@ public class TmdbPeople extends AbstractTmdbApi {
 
 
         return mapJsonResult(apiUrl, PersonPeople.class);
+    }
+
+    public static class PersonResultsPage extends ResultsPage<Person> {
+
     }
 }

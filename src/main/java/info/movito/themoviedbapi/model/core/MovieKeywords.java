@@ -6,10 +6,11 @@
 package info.movito.themoviedbapi.model.core;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import info.movito.themoviedbapi.model.keywords.Keyword;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import info.movito.themoviedbapi.model.keywords.Keyword;
 
 
 public class MovieKeywords extends AbstractJsonMapping {

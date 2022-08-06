@@ -9,7 +9,6 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonTypeInfo
 import info.movito.themoviedbapi.model.Multi
 import org.apache.commons.lang3.StringUtils
-import java.util.ArrayList
 
 @JsonTypeInfo(use = JsonTypeInfo.Id.NONE)
 class PersonPeople : Person(), Multi {

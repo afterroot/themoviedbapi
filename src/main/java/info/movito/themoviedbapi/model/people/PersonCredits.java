@@ -6,9 +6,10 @@
 package info.movito.themoviedbapi.model.people;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import info.movito.themoviedbapi.model.core.AbstractJsonMapping;
 
 import java.util.List;
+
+import info.movito.themoviedbapi.model.core.AbstractJsonMapping;
 
 
 public class PersonCredits extends AbstractJsonMapping {
@@ -23,16 +24,13 @@ public class PersonCredits extends AbstractJsonMapping {
         return cast;
     }
 
-
-    public List<PersonCredit> getCrew() {
-        return crew;
-    }
-
-
     public void setCast(List<PersonCredit> cast) {
         this.cast = cast;
     }
 
+    public List<PersonCredit> getCrew() {
+        return crew;
+    }
 
     public void setCrew(List<PersonCredit> crew) {
         this.crew = crew;

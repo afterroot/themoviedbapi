@@ -5,6 +5,8 @@
 
 package info.movito.themoviedbapi;
 
+import static info.movito.themoviedbapi.Utils.asStringArray;
+
 import info.movito.themoviedbapi.model.ContentRating;
 import info.movito.themoviedbapi.model.Credits;
 import info.movito.themoviedbapi.model.MovieImages;
@@ -12,8 +14,6 @@ import info.movito.themoviedbapi.model.config.Timezone;
 import info.movito.themoviedbapi.model.core.TvKeywords;
 import info.movito.themoviedbapi.model.tv.TvSeries;
 import info.movito.themoviedbapi.tools.ApiUrl;
-
-import static info.movito.themoviedbapi.Utils.asStringArray;
 
 
 public class TmdbTV extends AbstractTmdbApi {
@@ -29,13 +29,9 @@ public class TmdbTV extends AbstractTmdbApi {
     public static final String TMDB_METHOD_KEYWORDS = "keywords";
 
 
-    public static enum TvMethod {credits, external_ids, images, videos, recommendations, keywords, content_ratings}
-
-
     TmdbTV(TmdbApi tmdbApi) {
         super(tmdbApi);
     }
-
 
     /**
      * This method is used to retrieve all of the basic series information.
@@ -50,14 +46,12 @@ public class TmdbTV extends AbstractTmdbApi {
         return mapJsonResult(apiUrl, TvSeries.class);
     }
 
-
     public Credits getCredits(int seriesId, String language) {
         ApiUrl apiUrl = new ApiUrl(TMDB_METHOD_TV, seriesId, TMDB_METHOD_CREDITS);
 
         apiUrl.addLanguage(language);
         return mapJsonResult(apiUrl, Credits.class);
     }
-
 
     public TvResultsPage getPopular(String language, Integer page) {
         ApiUrl apiUrl = new ApiUrl(TMDB_METHOD_TV, TMDB_METHOD_POPULAR);
@@ -68,7 +62,6 @@ public class TmdbTV extends AbstractTmdbApi {
 
         return mapJsonResult(apiUrl, TvResultsPage.class);
     }
-
 
     public TvResultsPage getAiringToday(String language, Integer page, Timezone timezone) {
         ApiUrl apiUrl = new ApiUrl(TMDB_METHOD_TV, TMDB_METHOD_AIRINGTODAY);
@@ -84,7 +77,6 @@ public class TmdbTV extends AbstractTmdbApi {
         return mapJsonResult(apiUrl, TvResultsPage.class);
     }
 
-
     public TvResultsPage getOnTheAir(String language, Integer page) {
         ApiUrl apiUrl = new ApiUrl(TMDB_METHOD_TV, TMDB_METHOD_ONTHEAIR);
 
@@ -94,7 +86,6 @@ public class TmdbTV extends AbstractTmdbApi {
 
         return mapJsonResult(apiUrl, TvResultsPage.class);
     }
-
 
     public TvResultsPage getTopRated(String language, Integer page) {
         ApiUrl apiUrl = new ApiUrl(TMDB_METHOD_TV, TMDB_METHOD_TOPRATED);
@@ -129,4 +120,6 @@ public class TmdbTV extends AbstractTmdbApi {
 
         return mapJsonResult(apiUrl, ContentRating.Results.class);
     }
+
+    public static enum TvMethod {credits, external_ids, images, videos, recommendations, keywords, content_ratings}
 }

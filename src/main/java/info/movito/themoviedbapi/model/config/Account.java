@@ -6,9 +6,10 @@
 package info.movito.themoviedbapi.model.config;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import info.movito.themoviedbapi.model.core.NamedIdElement;
 
 import java.util.HashMap;
+
+import info.movito.themoviedbapi.model.core.NamedIdElement;
 
 
 public class Account extends NamedIdElement {
