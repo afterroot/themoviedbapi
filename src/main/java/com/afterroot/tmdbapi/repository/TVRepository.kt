@@ -29,5 +29,7 @@ class TVRepository(val api: TVApi) {
 
     suspend fun getCredits(id: Int): Credits = api.getCredits(id)
 
-    suspend fun getSimilar(movieId: Int) = api.getSimilar(movieId)
+    suspend fun getSimilar(id: Int) = api.getSimilar(id)
+
+    suspend fun getSeason(id: Int, season: Int) = api.getSeason(id, season)
 }
