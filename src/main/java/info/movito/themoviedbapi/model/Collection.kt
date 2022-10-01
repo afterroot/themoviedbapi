@@ -27,12 +27,16 @@ data class Collection(
     fun getTitle(): String? {
         return if (StringUtils.isBlank(title)) {
             name
-        } else title
+        } else {
+            title
+        }
     }
 
     fun getName(): String? {
         return if (StringUtils.isBlank(name)) {
             title
-        } else name
+        } else {
+            name
+        }
     }
 }

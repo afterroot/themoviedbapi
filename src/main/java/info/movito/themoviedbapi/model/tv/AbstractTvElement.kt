@@ -41,7 +41,9 @@ open class AbstractTvElement : NamedIdElement() {
     fun getKeywords(): List<Keyword>? {
         return if (keywords != null) {
             keywords?.keywords
-        } else emptyList()
+        } else {
+            emptyList()
+        }
     }
 
     fun setKeywords(keywords: TvKeywords?) {

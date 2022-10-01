@@ -46,7 +46,9 @@ object Utils {
         }
         return if (compareDistance(moviedb.title, title, maxDistance)) {
             java.lang.Boolean.TRUE
-        } else java.lang.Boolean.FALSE
+        } else {
+            java.lang.Boolean.FALSE
+        }
     }
 
     /**
@@ -90,7 +92,8 @@ object Utils {
         if (StringUtils.isBlank(imagePath)) {
             return null
         }
-        @Suppress("DEPRECATION") val configuration = tmdb.configuration
+        @Suppress("DEPRECATION")
+        val configuration = tmdb.configuration
         if (!configuration.isValidSize(requiredSize)) {
             throw MovieDbException("Invalid size: $requiredSize")
         }

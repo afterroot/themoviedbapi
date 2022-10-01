@@ -39,7 +39,8 @@ class TmdbApi @JvmOverloads constructor(
      */
     private var autoRetry: Boolean = true
 ) {
-    @Deprecated("Use new api from V2") var configuration: ImagesConfig
+    @Deprecated("Use new api from V2")
+    var configuration: ImagesConfig
 
     /**
      * Uses the instance's api key to request information from api.tmdb.org.

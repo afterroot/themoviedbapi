@@ -25,7 +25,9 @@ data class ImagesConfig(
      */
     fun isValidPosterSize(posterSize: String): Boolean = if (posterSize.isBlank() || posterSizes.isEmpty()) {
         false
-    } else posterSizes.contains(posterSize)
+    } else {
+        posterSizes.contains(posterSize)
+    }
 
     /**
      * Check that the backdrop size is valid
@@ -34,7 +36,9 @@ data class ImagesConfig(
      */
     fun isValidBackdropSize(backdropSize: String): Boolean = if (backdropSize.isBlank() || backdropSizes.isEmpty()) {
         false
-    } else backdropSizes.contains(backdropSize)
+    } else {
+        backdropSizes.contains(backdropSize)
+    }
 
     /**
      * Check that the profile size is valid
@@ -43,7 +47,9 @@ data class ImagesConfig(
      */
     fun isValidProfileSize(profileSize: String): Boolean = if (profileSize.isBlank() || profileSizes.isEmpty()) {
         false
-    } else profileSizes.contains(profileSize)
+    } else {
+        profileSizes.contains(profileSize)
+    }
 
     /**
      * Check that the logo size is valid
@@ -52,7 +58,9 @@ data class ImagesConfig(
      */
     fun isValidLogoSize(logoSize: String): Boolean = if (logoSize.isBlank() || logoSizes.isEmpty()) {
         false
-    } else logoSizes.contains(logoSize)
+    } else {
+        logoSizes.contains(logoSize)
+    }
 
     /**
      * Check to see if the size is valid for any of the images types
