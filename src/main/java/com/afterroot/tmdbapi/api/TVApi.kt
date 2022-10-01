@@ -38,6 +38,9 @@ interface TVApi {
     @GET("3/tv/{id}/similar")
     suspend fun getSimilar(@Path("id") tvId: Int): TvResultsPage
 
+    @GET("3/tv/{id}/recommendations")
+    suspend fun getRecommended(@Path("id") tvId: Int): TvResultsPage
+
     @GET("3/tv/{id}/season/{season_number}")
     suspend fun getSeason(@Path("id") id: Int, @Path("season_number") season: Int): TvSeason
 }
