@@ -18,4 +18,5 @@ import com.afterroot.tmdbapi.api.ConfigApi
 
 class ConfigRepository(val api: ConfigApi) {
     suspend fun getConfig() = api.getConfig()
+    suspend fun getCountries() = api.getCountries()
 }

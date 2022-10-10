@@ -12,11 +12,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.afterroot.tmdbapi
 
-object Constants {
-    const val TMDB_BASE_URL = "https://api.themoviedb.org/"
-    const val PARAM_KEY = "api_key"
-    const val PARAM_LANGUAGE = "language"
-    const val PARAM_REGION = "region"
+package com.afterroot.tmdbapi.model.config
+
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import com.fasterxml.jackson.annotation.JsonProperty
+import info.movito.themoviedbapi.model.core.AbstractJsonMapping
+
+@Entity(tableName = Country.TABLE_NAME)
+data class Country(
+    @JsonProperty("iso_3166_1")
+    @PrimaryKey
+    val iso: String,
+    @JsonProperty("english_name")
+    val englishName: String,
+    @JsonProperty("native_name")
+    val nativeName: String
+) : AbstractJsonMapping() {
+    companion object {
+        const val TABLE_NAME = "countries"
+    }
 }

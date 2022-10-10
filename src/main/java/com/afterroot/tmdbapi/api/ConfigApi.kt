@@ -14,10 +14,14 @@
  */
 package com.afterroot.tmdbapi.api
 
+import com.afterroot.tmdbapi.model.config.Country
 import info.movito.themoviedbapi.model.config.ConfigResults
 import retrofit2.http.GET
 
 interface ConfigApi {
     @GET("3/configuration")
     suspend fun getConfig(): ConfigResults
+
+    @GET("3/configuration/countries")
+    suspend fun getCountries(): List<Country>
 }

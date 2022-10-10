@@ -277,6 +277,11 @@ class Discover {
         return year in YEAR_MIN..YEAR_MAX
     }
 
+    fun region(region: String): Discover {
+        params[PARAM_REGION] = region.uppercase()
+        return this
+    }
+
     companion object {
         private const val PARAM_PRIMARY_RELEASE_YEAR = "primary_release_year"
         private const val PARAM_VOTE_COUNT_GTE = "vote_count.gte"
@@ -291,6 +296,7 @@ class Discover {
         private const val PARAM_SORT_BY = "sort_by"
         private const val YEAR_MIN = 1900
         private const val YEAR_MAX = 2100
+        private const val PARAM_REGION = "region"
 
         const val SORT_BY_ORIGINAL_TITLE_ASC = "original_title.asc"
         const val SORT_BY_ORIGINAL_TITLE_DSC = "original_title.desc"

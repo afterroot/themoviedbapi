@@ -18,6 +18,11 @@ import com.afterroot.tmdbapi.api.DiscoverApi
 import info.movito.themoviedbapi.model.Discover
 
 class DiscoverRepository(val api: DiscoverApi) {
-    suspend fun getMoviesDiscover(discover: Discover) = api.getMoviesDiscover(discover.params)
+    suspend fun getMoviesDiscover(discover: Discover) = api.getMoviesDiscover(
+        discover.params.filterValues {
+            it.isNotBlank() || it.isNotEmpty()
+        }
+    )
+
     suspend fun getTVDiscover(discover: Discover) = api.getTVDiscover(discover.params)
 }
