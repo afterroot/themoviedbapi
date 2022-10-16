@@ -14,10 +14,28 @@
  */
 package com.afterroot.tmdbapi.repository
 
+import com.afterroot.tmdbapi.Constants
 import com.afterroot.tmdbapi.api.SearchApi
 
 class SearchRepository(val api: SearchApi) {
-    suspend fun searchMovie(query: String, includeAdult: Boolean = true) = api.searchMovie(query, includeAdult)
-    suspend fun searchTv(query: String, includeAdult: Boolean = true) = api.searchTv(query, includeAdult)
-    suspend fun searchPerson(query: String, includeAdult: Boolean = true) = api.searchPerson(query, includeAdult)
+    suspend fun searchMovie(
+        query: String,
+        includeAdult: Boolean = true,
+        page: Int = 1,
+        language: String = Constants.DEFAULT_LANG
+    ) = api.searchMovie(query, includeAdult, page, language)
+
+    suspend fun searchTv(
+        query: String,
+        includeAdult: Boolean = true,
+        page: Int = 1,
+        language: String = Constants.DEFAULT_LANG
+    ) = api.searchTv(query, includeAdult, page, language)
+
+    suspend fun searchPerson(
+        query: String,
+        includeAdult: Boolean = true,
+        page: Int = 1,
+        language: String = Constants.DEFAULT_LANG
+    ) = api.searchPerson(query, includeAdult, page, language)
 }

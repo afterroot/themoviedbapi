@@ -22,11 +22,26 @@ import retrofit2.http.Query
 
 interface SearchApi {
     @GET("3/search/tv")
-    suspend fun searchTv(@Query("query") query: String, @Query("include_adult") includeAdult: Boolean): TvResultsPage
+    suspend fun searchTv(
+        @Query("query") query: String,
+        @Query("include_adult") includeAdult: Boolean,
+        @Query("page") page: Int,
+        @Query("language") language: String
+    ): TvResultsPage
 
     @GET("3/search/movie")
-    suspend fun searchMovie(@Query("query") query: String, @Query("include_adult") includeAdult: Boolean): MovieResultsPage
+    suspend fun searchMovie(
+        @Query("query") query: String,
+        @Query("include_adult") includeAdult: Boolean,
+        @Query("page") page: Int,
+        @Query("language") language: String
+    ): MovieResultsPage
 
     @GET("3/search/person")
-    suspend fun searchPerson(@Query("query") query: String, @Query("include_adult") includeAdult: Boolean): TmdbPeople.PersonResultsPage
+    suspend fun searchPerson(
+        @Query("query") query: String,
+        @Query("include_adult") includeAdult: Boolean,
+        @Query("page") page: Int,
+        @Query("language") language: String
+    ): TmdbPeople.PersonResultsPage
 }

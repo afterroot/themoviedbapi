@@ -20,4 +20,5 @@ object Constants {
     const val PARAM_LANGUAGE = "language"
     const val PARAM_REGION = "region"
     const val DEFAULT_REGION = "US"
+    const val DEFAULT_LANG = "en-US"
 }
