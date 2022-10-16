@@ -20,12 +20,13 @@ import java.util.Locale
 /**
  * OkHttp interceptor that adds Tmdb api key in each request
  */
-class TMDbInterceptor(val key: String, val language: String = Locale.ENGLISH.toString(), val v4ApiKey: String? = null) :
+class TMDbInterceptor(val key: String, val language: String = Locale.ENGLISH.toString(), val v4ApiKey: String? = null, val region: String) :
     Interceptor {
     override fun intercept(chain: Interceptor.Chain): okhttp3.Response {
         val req = chain.request()
         val url = req.url.newBuilder().addQueryParameter(Constants.PARAM_LANGUAGE, language)
             .addQueryParameter(Constants.PARAM_KEY, key)
+            .addQueryParameter(Constants.PARAM_REGION, region)
         val request = req.newBuilder().url(url.build())
         if (v4ApiKey != null) {
             request.addHeader("authorization", v4ApiKey)

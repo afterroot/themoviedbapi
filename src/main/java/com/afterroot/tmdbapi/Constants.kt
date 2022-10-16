@@ -19,4 +19,5 @@ object Constants {
     const val PARAM_KEY = "api_key"
     const val PARAM_LANGUAGE = "language"
     const val PARAM_REGION = "region"
+    const val DEFAULT_REGION = "US"
 }
