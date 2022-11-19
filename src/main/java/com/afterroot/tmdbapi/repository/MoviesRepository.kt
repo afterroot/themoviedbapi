@@ -41,7 +41,7 @@ class MoviesRepository(val api: MoviesApi) {
     suspend fun getTopRated(region: String? = null) = api.getTopRated(region)
     suspend fun getUpcoming(region: String? = null) = api.getUpcoming(region)
     suspend fun getSimilar(movieId: Int) = api.getSimilar(movieId)
-    suspend fun getRecommended(movieId: Int) = api.getRecommended(movieId)
+    suspend fun getRecommended(movieId: Int, page: Int = 1) = api.getRecommended(movieId, page)
     suspend fun getCredits(movieId: Int): Credits = api.getCredits(movieId)
     suspend fun getImages(movieId: Int): MovieImages = api.getImages(movieId)
     suspend fun getVideos(movieId: Int): Video.Results = api.getVideos(movieId)
