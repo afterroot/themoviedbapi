@@ -19,6 +19,7 @@ import info.movito.themoviedbapi.TvResultsPage
 import info.movito.themoviedbapi.model.core.MovieResultsPage
 import retrofit2.http.GET
 import retrofit2.http.Query
+import retrofit2.http.QueryMap
 
 interface SearchApi {
     @GET("3/search/tv")
@@ -29,6 +30,9 @@ interface SearchApi {
         @Query("language") language: String
     ): TvResultsPage
 
+    @GET("3/search/tv")
+    suspend fun searchTv(@QueryMap params: Map<String, String>): TvResultsPage
+
     @GET("3/search/movie")
     suspend fun searchMovie(
         @Query("query") query: String,
@@ -37,6 +41,9 @@ interface SearchApi {
         @Query("language") language: String
     ): MovieResultsPage
 
+    @GET("3/search/movie")
+    suspend fun searchMovie(@QueryMap params: Map<String, String>): MovieResultsPage
+
     @GET("3/search/person")
     suspend fun searchPerson(
         @Query("query") query: String,
@@ -44,4 +51,7 @@ interface SearchApi {
         @Query("page") page: Int,
         @Query("language") language: String
     ): TmdbPeople.PersonResultsPage
+
+    @GET("3/search/person")
+    suspend fun searchPerson(@QueryMap params: Map<String, String>): TmdbPeople.PersonResultsPage
 }
