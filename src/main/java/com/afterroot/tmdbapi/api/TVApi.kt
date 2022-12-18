@@ -16,6 +16,7 @@ package com.afterroot.tmdbapi.api
 
 import info.movito.themoviedbapi.TvResultsPage
 import info.movito.themoviedbapi.model.Credits
+import info.movito.themoviedbapi.model.tv.TvEpisode
 import info.movito.themoviedbapi.model.tv.TvSeason
 import info.movito.themoviedbapi.model.tv.TvSeries
 import retrofit2.http.GET
@@ -43,4 +44,11 @@ interface TVApi {
 
     @GET("3/tv/{id}/season/{season_number}")
     suspend fun getSeason(@Path("id") id: Int, @Path("season_number") season: Int): TvSeason
+
+    @GET("3/tv/{id}/season/{season_number}/episode/{episode_number}")
+    suspend fun getEpisode(
+        @Path("id") id: Int,
+        @Path("season_number") season: Int,
+        @Path("episode_number") episode: Int
+    ): TvEpisode
 }
