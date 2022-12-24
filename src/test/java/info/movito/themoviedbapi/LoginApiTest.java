@@ -1,15 +1,16 @@
 package info.movito.themoviedbapi;
 
-import info.movito.themoviedbapi.model.config.TokenAuthorisation;
-import info.movito.themoviedbapi.model.config.TokenSession;
-import info.movito.themoviedbapi.tools.MovieDbException;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assume.assumeFalse;
+
 import org.apache.commons.lang3.StringUtils;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assume.assumeFalse;
+import info.movito.themoviedbapi.model.config.TokenAuthorisation;
+import info.movito.themoviedbapi.model.config.TokenSession;
+import info.movito.themoviedbapi.tools.MovieDbException;
 
 /**
  * New tests for user/password authorization.

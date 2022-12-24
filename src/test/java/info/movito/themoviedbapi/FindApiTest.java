@@ -1,9 +1,10 @@
 package info.movito.themoviedbapi;
 
-import info.movito.themoviedbapi.model.FindResults;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Test;
 
-import static org.junit.Assert.assertTrue;
+import info.movito.themoviedbapi.model.FindResults;
 
 
 public class FindApiTest extends AbstractTmdbApiTest {
