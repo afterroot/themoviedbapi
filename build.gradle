@@ -23,8 +23,6 @@ android {
         minSdkVersion 16
         targetSdkVersion 33
         resourceConfigurations += ["en"]
-        versionCode 16 * 10000000 + major * 10000 + minor * 100 + patch
-        versionName "${major}.${minor}.${patch}"
     }
 
     buildTypes {
