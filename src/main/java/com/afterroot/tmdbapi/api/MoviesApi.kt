@@ -22,6 +22,7 @@ import info.movito.themoviedbapi.model.Video
 import info.movito.themoviedbapi.model.core.MovieKeywords
 import info.movito.themoviedbapi.model.core.MovieResultsPage
 import info.movito.themoviedbapi.model.core.ResultsPage
+import info.movito.themoviedbapi.model.providers.ProviderResults
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -74,4 +75,7 @@ interface MoviesApi {
 
     @GET("3/movie/{movie_id}/lists")
     suspend fun getLists(@Path("movie_id") movieId: Int): ResultsPage<MovieList>
+
+    @GET("3/movie/{movie_id}/watch/providers")
+    suspend fun getWatchProviders(@Path("movie_id") movieId: Int): ProviderResults
 }

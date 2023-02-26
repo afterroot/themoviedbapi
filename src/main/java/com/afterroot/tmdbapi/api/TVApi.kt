@@ -16,6 +16,7 @@ package com.afterroot.tmdbapi.api
 
 import info.movito.themoviedbapi.TvResultsPage
 import info.movito.themoviedbapi.model.Credits
+import info.movito.themoviedbapi.model.providers.ProviderResults
 import info.movito.themoviedbapi.model.tv.TvEpisode
 import info.movito.themoviedbapi.model.tv.TvSeason
 import info.movito.themoviedbapi.model.tv.TvSeries
@@ -51,4 +52,7 @@ interface TVApi {
         @Path("season_number") season: Int,
         @Path("episode_number") episode: Int
     ): TvEpisode
+
+    @GET("3/tv/{id}/watch/providers")
+    suspend fun getWatchProviders(@Path("id") id: Int): ProviderResults
 }
