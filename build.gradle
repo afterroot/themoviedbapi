@@ -9,7 +9,7 @@ repositories {
 }
 
 ext {
-    kotlin_version = libs.versions.kotlin.get() ? libs.versions.kotlin.get() : '1.8.10'
+    kotlin_version = libs.versions.kotlin.get() ? libs.versions.kotlin.get() : '1.8.20'
     major = 2
     minor = 0
     patch = 0
