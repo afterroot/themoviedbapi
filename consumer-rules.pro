@@ -11,3 +11,5 @@
 -keepclassmembers class info.movito.themoviedbapi.model.** {
   *;
 }
+
+-keep,allowobfuscation,allowshrinking class kotlin.coroutines.Continuation
