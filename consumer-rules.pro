@@ -4,11 +4,11 @@
     !private <methods>;
 }
 
--keepclassmembers class com.afterroot.tmdbapi.model.** {
+-keep class com.afterroot.tmdbapi.model.** {
   *;
 }
 
--keepclassmembers class info.movito.themoviedbapi.model.** {
+-keep class info.movito.themoviedbapi.model.** {
   *;
 }
 

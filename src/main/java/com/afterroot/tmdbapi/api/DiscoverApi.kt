@@ -14,7 +14,7 @@
  */
 package com.afterroot.tmdbapi.api
 
-import info.movito.themoviedbapi.TvResultsPage
+import info.movito.themoviedbapi.model.core.TvResultsPage
 import info.movito.themoviedbapi.model.core.MovieResultsPage
 import retrofit2.http.GET
 import retrofit2.http.QueryMap

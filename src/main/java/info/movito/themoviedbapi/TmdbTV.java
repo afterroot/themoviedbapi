@@ -12,6 +12,7 @@ import info.movito.themoviedbapi.model.Credits;
 import info.movito.themoviedbapi.model.MovieImages;
 import info.movito.themoviedbapi.model.config.Timezone;
 import info.movito.themoviedbapi.model.core.TvKeywords;
+import info.movito.themoviedbapi.model.core.TvResultsPage;
 import info.movito.themoviedbapi.model.tv.TvSeries;
 import info.movito.themoviedbapi.tools.ApiUrl;
 

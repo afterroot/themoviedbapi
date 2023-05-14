@@ -14,7 +14,7 @@
  */
 package com.afterroot.tmdbapi.api
 
-import info.movito.themoviedbapi.TvResultsPage
+import info.movito.themoviedbapi.model.core.TvResultsPage
 import info.movito.themoviedbapi.model.Credits
 import info.movito.themoviedbapi.model.providers.ProviderResults
 import info.movito.themoviedbapi.model.tv.TvEpisode
