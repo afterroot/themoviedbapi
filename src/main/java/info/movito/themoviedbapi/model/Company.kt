@@ -21,7 +21,9 @@ class Company : NamedIdElement() {
     @JsonProperty("logo_path")
     var logoPath: String? = null
 
-    @JsonProperty("parent_company") // tbd is this field still supported? We need an example for info.movito.themoviedbapi.CompanyApiTest.testGetCompanyInfo
+    @JsonProperty(
+        "parent_company"
+    ) // tbd is this field still supported? We need an example for info.movito.themoviedbapi.CompanyApiTest.testGetCompanyInfo
     var parentCompany: Company? = null
 
     fun setParentCompany(id: Int, name: String?, logoPath: String?) {

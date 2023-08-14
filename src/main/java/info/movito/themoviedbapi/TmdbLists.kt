@@ -12,8 +12,8 @@ import info.movito.themoviedbapi.model.core.ResponseStatus
 import info.movito.themoviedbapi.model.core.SessionToken
 import info.movito.themoviedbapi.tools.ApiUrl
 import info.movito.themoviedbapi.tools.RequestMethod
-import org.apache.commons.lang3.StringUtils
 import java.util.Collections
+import org.apache.commons.lang3.StringUtils
 
 class TmdbLists(tmdbApi: TmdbApi?) : AbstractTmdbApi(tmdbApi!!) {
     /**

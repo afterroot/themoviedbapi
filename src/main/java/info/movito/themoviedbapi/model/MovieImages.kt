@@ -27,7 +27,8 @@ class MovieImages : IdElement() {
      */
     fun getAll(vararg artworkTypes: ArtworkType?): List<Artwork> {
         val artwork: MutableList<Artwork> = ArrayList()
-        val types: List<ArtworkType?> = listOf(*if (artworkTypes.isNotEmpty()) artworkTypes else ArtworkType.values())
+        val types: List<ArtworkType?> =
+            listOf(*if (artworkTypes.isNotEmpty()) artworkTypes else ArtworkType.values())
 
         // Add all the posters to the list
         if (types.contains(ArtworkType.POSTER) && posters != null) {

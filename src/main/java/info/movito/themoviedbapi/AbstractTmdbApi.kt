@@ -23,7 +23,12 @@ abstract class AbstractTmdbApi internal constructor(protected val tmdbApi: TmdbA
     }
 
     @Suppress("UNUSED_PARAMETER")
-    fun <T> mapJsonResult(apiUrl: ApiUrl?, someClass: Class<T>?, jsonBody: String?, requestMethod: String): T {
+    fun <T> mapJsonResult(
+        apiUrl: ApiUrl?,
+        someClass: Class<T>?,
+        jsonBody: String?,
+        requestMethod: String
+    ): T {
         val webpage = tmdbApi.requestWebPage(apiUrl!!, requestMethod)
 
         return try {

@@ -106,8 +106,8 @@ class PersonPeople : Person(), Multi {
     companion object {
         // todo initializers should all go away
         /*
-     * Static fields for default cast information
-     */
+         * Static fields for default cast information
+         */
         private const val CAST_DEPARTMENT = "acting"
         private const val CAST_JOB = "actor"
         private const val DEFAULT_STRING = ""

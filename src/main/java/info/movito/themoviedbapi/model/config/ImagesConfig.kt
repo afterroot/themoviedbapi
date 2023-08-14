@@ -23,7 +23,9 @@ data class ImagesConfig(
      *
      * @param posterSize
      */
-    fun isValidPosterSize(posterSize: String): Boolean = if (posterSize.isBlank() || posterSizes.isEmpty()) {
+    fun isValidPosterSize(
+        posterSize: String
+    ): Boolean = if (posterSize.isBlank() || posterSizes.isEmpty()) {
         false
     } else {
         posterSizes.contains(posterSize)
@@ -34,7 +36,9 @@ data class ImagesConfig(
      *
      * @param backdropSize
      */
-    fun isValidBackdropSize(backdropSize: String): Boolean = if (backdropSize.isBlank() || backdropSizes.isEmpty()) {
+    fun isValidBackdropSize(
+        backdropSize: String
+    ): Boolean = if (backdropSize.isBlank() || backdropSizes.isEmpty()) {
         false
     } else {
         backdropSizes.contains(backdropSize)
@@ -45,7 +49,9 @@ data class ImagesConfig(
      *
      * @param profileSize
      */
-    fun isValidProfileSize(profileSize: String): Boolean = if (profileSize.isBlank() || profileSizes.isEmpty()) {
+    fun isValidProfileSize(
+        profileSize: String
+    ): Boolean = if (profileSize.isBlank() || profileSizes.isEmpty()) {
         false
     } else {
         profileSizes.contains(profileSize)
@@ -56,7 +62,9 @@ data class ImagesConfig(
      *
      * @param logoSize
      */
-    fun isValidLogoSize(logoSize: String): Boolean = if (logoSize.isBlank() || logoSizes.isEmpty()) {
+    fun isValidLogoSize(
+        logoSize: String
+    ): Boolean = if (logoSize.isBlank() || logoSizes.isEmpty()) {
         false
     } else {
         logoSizes.contains(logoSize)

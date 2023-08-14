@@ -9,9 +9,9 @@ import com.fasterxml.jackson.core.JsonProcessingException
 import com.fasterxml.jackson.databind.ObjectMapper
 import info.movito.themoviedbapi.model.NetworkMovie
 import info.movito.themoviedbapi.tools.MovieDbException
-import org.apache.commons.lang3.StringUtils
 import java.net.MalformedURLException
 import java.net.URL
+import org.apache.commons.lang3.StringUtils
 
 object Utils {
     /**
@@ -23,7 +23,12 @@ object Utils {
      * @return True if there is a match, False otherwise.
      */
     @JvmOverloads
-    fun compareMovies(moviedb: NetworkMovie?, title: String, year: String, maxDistance: Int = 0): Boolean {
+    fun compareMovies(
+        moviedb: NetworkMovie?,
+        title: String,
+        year: String,
+        maxDistance: Int = 0
+    ): Boolean {
         if (moviedb == null || StringUtils.isBlank(title)) {
             return java.lang.Boolean.FALSE
         }

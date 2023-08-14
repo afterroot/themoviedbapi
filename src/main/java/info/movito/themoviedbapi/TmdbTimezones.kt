@@ -21,7 +21,12 @@ class TmdbTimezones internal constructor(tmdbApi: TmdbApi?) : AbstractTmdbApi(tm
         const val TMDB_METHOD_TIMEZONESLIST = "configuration/timezones"
     }
 
-    data class TimeZone(@JsonProperty("iso_3166_1") val country: String, @JsonProperty("zones") val zones: Array<String>) :
+    data class TimeZone(
+        @JsonProperty(
+            "iso_3166_1"
+        ) val country: String,
+        @JsonProperty("zones") val zones: Array<String>
+    ) :
         AbstractJsonMapping() {
         override fun equals(other: Any?): Boolean {
             if (this === other) return true

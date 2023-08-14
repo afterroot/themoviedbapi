@@ -14,13 +14,17 @@
  */
 package com.afterroot.tmdbapi
 
-import okhttp3.Interceptor
 import java.util.Locale
+import okhttp3.Interceptor
 
 /**
  * OkHttp interceptor that adds Tmdb api key in each request
  */
-class TMDbInterceptor(val key: String, val language: String = Locale.ENGLISH.toString(), val v4ApiKey: String? = null) :
+class TMDbInterceptor(
+    val key: String,
+    val language: String = Locale.ENGLISH.toString(),
+    val v4ApiKey: String? = null
+) :
     Interceptor {
     override fun intercept(chain: Interceptor.Chain): okhttp3.Response {
         val req = chain.request()

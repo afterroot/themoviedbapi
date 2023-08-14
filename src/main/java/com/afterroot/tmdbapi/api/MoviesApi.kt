@@ -59,7 +59,10 @@ interface MoviesApi {
     suspend fun getSimilar(@Path("movie_id") movieId: Int): MovieResultsPage
 
     @GET("3/movie/{movie_id}/recommendations")
-    suspend fun getRecommended(@Path("movie_id") movieId: Int, @Query("page") page: Int): MovieResultsPage
+    suspend fun getRecommended(
+        @Path("movie_id") movieId: Int,
+        @Query("page") page: Int
+    ): MovieResultsPage
 
     @GET("3/movie/{movie_id}/credits")
     suspend fun getCredits(@Path("movie_id") movieId: Int): Credits

@@ -15,10 +15,10 @@ import info.movito.themoviedbapi.tools.ApiUrl
 import info.movito.themoviedbapi.tools.MovieDbException
 import info.movito.themoviedbapi.tools.RequestCountLimitException
 import info.movito.themoviedbapi.tools.RequestMethod
+import java.io.IOException
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.RequestBody
-import java.io.IOException
 
 /**
  * The MovieDb API

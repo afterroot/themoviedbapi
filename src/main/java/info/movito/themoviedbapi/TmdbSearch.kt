@@ -109,7 +109,11 @@ class TmdbSearch(tmdbApi: TmdbApi?) : AbstractTmdbApi(tmdbApi!!) {
      * @param includeAdult
      * @param page
      */
-    fun searchPerson(query: String, includeAdult: Boolean, page: Int?): TmdbPeople.PersonResultsPage {
+    fun searchPerson(
+        query: String,
+        includeAdult: Boolean,
+        page: Int?
+    ): TmdbPeople.PersonResultsPage {
         val apiUrl = ApiUrl(TMDB_METHOD_SEARCH, TmdbPeople.TMDB_METHOD_PERSON)
         apiUrl.addParam(PARAM_QUERY, query)
         apiUrl.addParam(PARAM_ADULT, includeAdult)

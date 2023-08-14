@@ -15,7 +15,11 @@ class MoviesApiTest : AbstractTmdbApiTest() {
 
     @Test
     fun testGetMovieInfoWithAppendedMethods() {
-        val result = tmdb.movies.getMovie(ID_MOVIE_BLADE_RUNNER, LANGUAGE_ENGLISH, *TmdbMovies.MovieMethod.values())
+        val result = tmdb.movies.getMovie(
+            ID_MOVIE_BLADE_RUNNER,
+            LANGUAGE_ENGLISH,
+            *TmdbMovies.MovieMethod.values()
+        )
         val productionCompany = result.productionCompanies?.get(0)
         Assert.assertEquals("Incorrect movie information", "Blade Runner", result.originalTitle)
         Assert.assertTrue("no videos", result.videos()!!.isNotEmpty())
@@ -121,7 +125,10 @@ class MoviesApiTest : AbstractTmdbApiTest() {
 
     @Test
     fun testCreateImageUrl() {
-        val (_, _, _, _, _, _, _, _, _, _, _, _, posterPath) = tmdb.movies.getMovie(ID_MOVIE_BLADE_RUNNER, "")
+        val (_, _, _, _, _, _, _, _, _, _, _, _, posterPath) = tmdb.movies.getMovie(
+            ID_MOVIE_BLADE_RUNNER,
+            ""
+        )
         val result =
             createImageUrl(tmdb, posterPath, "original").toString()
         Assert.assertFalse("Error compiling image URL", result.isEmpty())

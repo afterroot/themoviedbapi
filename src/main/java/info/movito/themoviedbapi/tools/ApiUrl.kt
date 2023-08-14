@@ -6,9 +6,9 @@
 package info.movito.themoviedbapi.tools
 
 import info.movito.themoviedbapi.AbstractTmdbApi
-import org.apache.commons.lang3.StringUtils
 import java.net.URL
 import java.net.URLEncoder
+import org.apache.commons.lang3.StringUtils
 
 /**
  * Tmdb Api URL Builder
@@ -103,8 +103,8 @@ class ApiUrl(vararg urlElements: Any?) {
 
     companion object {
         /*
-     * TmdbApi API Base URL
-     */
+         * TmdbApi API Base URL
+         */
         private const val TMDB_API_BASE = "https://api.themoviedb.org/3/"
         private const val APPEND_TO_RESPONSE = "append_to_response"
     }
