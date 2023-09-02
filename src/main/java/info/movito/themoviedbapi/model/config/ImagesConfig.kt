@@ -15,7 +15,7 @@ data class ImagesConfig(
     @JsonProperty("backdrop_sizes") var backdropSizes: List<String>,
     @JsonProperty("profile_sizes") var profileSizes: List<String>,
     @JsonProperty("logo_sizes") var logoSizes: List<String>,
-    @JsonProperty("still_sizes") var stillSizes: List<String>
+    @JsonProperty("still_sizes") var stillSizes: List<String>,
 ) : AbstractJsonMapping() {
 
     /**
@@ -24,7 +24,7 @@ data class ImagesConfig(
      * @param posterSize
      */
     fun isValidPosterSize(
-        posterSize: String
+        posterSize: String,
     ): Boolean = if (posterSize.isBlank() || posterSizes.isEmpty()) {
         false
     } else {
@@ -37,7 +37,7 @@ data class ImagesConfig(
      * @param backdropSize
      */
     fun isValidBackdropSize(
-        backdropSize: String
+        backdropSize: String,
     ): Boolean = if (backdropSize.isBlank() || backdropSizes.isEmpty()) {
         false
     } else {
@@ -50,7 +50,7 @@ data class ImagesConfig(
      * @param profileSize
      */
     fun isValidProfileSize(
-        profileSize: String
+        profileSize: String,
     ): Boolean = if (profileSize.isBlank() || profileSizes.isEmpty()) {
         false
     } else {
@@ -63,7 +63,7 @@ data class ImagesConfig(
      * @param logoSize
      */
     fun isValidLogoSize(
-        logoSize: String
+        logoSize: String,
     ): Boolean = if (logoSize.isBlank() || logoSizes.isEmpty()) {
         false
     } else {

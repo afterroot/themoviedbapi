@@ -24,12 +24,12 @@ data class ResponseRequestToken(
     @JsonProperty("status_message")
     val statusMessage: String = "",
     @JsonProperty("success")
-    val success: Boolean = false
+    val success: Boolean = false,
 )
 
 data class RequestBodyToken(
     @JsonProperty("redirect_to")
-    val redirect_to: String = ""
+    val redirect_to: String = "",
 )
 
 data class ResponseAccessToken(
@@ -42,12 +42,12 @@ data class ResponseAccessToken(
     @JsonProperty("status_message")
     val statusMessage: String = "",
     @JsonProperty("success")
-    val success: Boolean = false
+    val success: Boolean = false,
 )
 
 data class RequestDeleteAccessToken(
     @JsonProperty("access_token")
-    val accessToken: String = ""
+    val accessToken: String = "",
 )
 
 data class ResponseDeleteAccessToken(
@@ -56,5 +56,5 @@ data class ResponseDeleteAccessToken(
     @JsonProperty("status_message")
     val statusMessage: String = "",
     @JsonProperty("success")
-    val success: Boolean = false
+    val success: Boolean = false,
 )

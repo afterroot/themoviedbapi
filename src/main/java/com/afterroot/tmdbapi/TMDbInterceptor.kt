@@ -23,7 +23,7 @@ import okhttp3.Interceptor
 class TMDbInterceptor(
     val key: String,
     val language: String = Locale.ENGLISH.toString(),
-    val v4ApiKey: String? = null
+    val v4ApiKey: String? = null,
 ) :
     Interceptor {
     override fun intercept(chain: Interceptor.Chain): okhttp3.Response {

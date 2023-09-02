@@ -50,7 +50,7 @@ class Query {
         AbstractTmdbApi.PARAM_ADULT,
         ParamNames.REGION,
         AbstractTmdbApi.PARAM_YEAR,
-        ParamNames.PRIMARY_RELEASE_YEAR
+        ParamNames.PRIMARY_RELEASE_YEAR,
     )
 
     fun forSearch(): Query {

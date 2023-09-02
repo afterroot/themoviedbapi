@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 
 data class ProviderResults(
     @JsonProperty("id") val id: Int = 0,
-    @JsonProperty("results") var results: Map<String, WatchProviders?>? = null
+    @JsonProperty("results") var results: Map<String, WatchProviders?>? = null,
 ) {
     fun getProvidersForCountry(country: String): WatchProviders? {
         return results?.getOrDefault(country, null)

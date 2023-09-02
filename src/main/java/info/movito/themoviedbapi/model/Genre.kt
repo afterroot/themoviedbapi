@@ -10,7 +10,7 @@ import info.movito.themoviedbapi.model.core.NamedIdElement
 
 @Deprecated(
     "Use New Genre",
-    replaceWith = ReplaceWith("Genre", "com.afterroot.tmdbapi.model.Genre")
+    replaceWith = ReplaceWith("Genre", "com.afterroot.tmdbapi.model.Genre"),
 )
 @JsonRootName("genre")
 class Genre : NamedIdElement()

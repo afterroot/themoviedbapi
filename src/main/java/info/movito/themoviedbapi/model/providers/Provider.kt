@@ -10,5 +10,5 @@ data class Provider(
     @JsonProperty("display_priority") var displayPriority: Int? = null,
     @JsonProperty("logo_path") var logoPath: String? = null,
     @JsonProperty("provider_id") var providerId: Int? = null,
-    @JsonProperty("provider_name") var providerName: String? = null
+    @JsonProperty("provider_name") var providerName: String? = null,
 )

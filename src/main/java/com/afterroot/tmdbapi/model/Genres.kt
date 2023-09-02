@@ -21,7 +21,7 @@ import info.movito.themoviedbapi.model.core.AbstractJsonMapping
 
 data class Genres(
     @JsonProperty("genres")
-    val genres: List<Genre> = listOf()
+    val genres: List<Genre> = listOf(),
 ) : AbstractJsonMapping()
 
 @Entity(tableName = Genre.TABLE_NAME)
@@ -30,7 +30,7 @@ data class Genre(
     @PrimaryKey
     val id: Int = 0,
     @JsonProperty("name")
-    val name: String = ""
+    val name: String = "",
 ) : AbstractJsonMapping() {
     companion object {
         const val TABLE_NAME = "genres"

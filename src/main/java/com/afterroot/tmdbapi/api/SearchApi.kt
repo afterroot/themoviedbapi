@@ -27,7 +27,7 @@ interface SearchApi {
         @Query("query") query: String,
         @Query("include_adult") includeAdult: Boolean,
         @Query("page") page: Int,
-        @Query("language") language: String
+        @Query("language") language: String,
     ): TvResultsPage
 
     @GET("3/search/tv")
@@ -38,7 +38,7 @@ interface SearchApi {
         @Query("query") query: String,
         @Query("include_adult") includeAdult: Boolean,
         @Query("page") page: Int,
-        @Query("language") language: String
+        @Query("language") language: String,
     ): MovieResultsPage
 
     @GET("3/search/movie")
@@ -49,7 +49,7 @@ interface SearchApi {
         @Query("query") query: String,
         @Query("include_adult") includeAdult: Boolean,
         @Query("page") page: Int,
-        @Query("language") language: String
+        @Query("language") language: String,
     ): TmdbPeople.PersonResultsPage
 
     @GET("3/search/person")

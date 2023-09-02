@@ -27,7 +27,7 @@ import info.movito.themoviedbapi.model.core.ResultsPage
 
 class MoviesRepository(val api: MoviesApi) {
     suspend fun getMoviesTrendingInSearch(
-        by: String = TmdbTrending.BY_DAY
+        by: String = TmdbTrending.BY_DAY,
     ) = api.getMoviesTrendingInSearch(by)
 
     suspend fun getMovieInfo(movieId: Int) = api.getMovieInfo(movieId)

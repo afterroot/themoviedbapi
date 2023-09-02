@@ -28,7 +28,7 @@ data class Country(
     @JsonProperty("english_name")
     val englishName: String,
     @JsonProperty("native_name")
-    val nativeName: String
+    val nativeName: String,
 ) : AbstractJsonMapping() {
     companion object {
         const val TABLE_NAME = "countries"

@@ -21,7 +21,7 @@ data class Collection(
     @JsonProperty("backdrop_path")
     var backdropPath: String? = null,
     @JsonProperty("release_date")
-    var releaseDate: String? = null
+    var releaseDate: String? = null,
 ) : IdElement() {
 
     fun getTitle(): String? {

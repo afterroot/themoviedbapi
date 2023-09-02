@@ -15,5 +15,5 @@ data class TvEpisode(
     @JsonProperty("show_id") var seriesId: Int = 0,
     @JsonProperty("still_path") var stillPath: String? = null,
     @JsonProperty("vote_average") var voteAverage: Float = 0f,
-    @JsonProperty("vote_count") var voteCount: Int = 0
+    @JsonProperty("vote_count") var voteCount: Int = 0,
 ) : AbstractTvElement()

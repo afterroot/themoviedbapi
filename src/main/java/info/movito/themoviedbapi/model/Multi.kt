@@ -26,7 +26,7 @@ import info.movito.themoviedbapi.model.tv.TvSeries
 @JsonSubTypes(
     JsonSubTypes.Type(value = NetworkMovie::class, name = "movie"),
     JsonSubTypes.Type(value = PersonPeople::class, name = "person"),
-    JsonSubTypes.Type(value = TvSeries::class, name = "tv")
+    JsonSubTypes.Type(value = TvSeries::class, name = "tv"),
 )
 interface Multi {
     enum class MediaType {

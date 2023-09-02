@@ -61,7 +61,7 @@ class TmdbLists(tmdbApi: TmdbApi?) : AbstractTmdbApi(tmdbApi!!) {
     fun addMovieToList(
         sessionToken: SessionToken,
         listId: String,
-        movieId: Int
+        movieId: Int,
     ): ResponseStatus {
         return modifyMovieList(sessionToken, listId, movieId, "add_item")
     }
@@ -74,7 +74,7 @@ class TmdbLists(tmdbApi: TmdbApi?) : AbstractTmdbApi(tmdbApi!!) {
     fun removeMovieFromList(
         sessionToken: SessionToken,
         listId: String,
-        movieId: Int
+        movieId: Int,
     ): ResponseStatus {
         return modifyMovieList(sessionToken, listId, movieId, "remove_item")
     }
@@ -83,18 +83,18 @@ class TmdbLists(tmdbApi: TmdbApi?) : AbstractTmdbApi(tmdbApi!!) {
         sessionToken: SessionToken,
         listId: String,
         movieId: Int,
-        operation: String
+        operation: String,
     ): ResponseStatus {
         val apiUrl = ApiUrl(TMDB_METHOD_LIST, listId, operation)
         apiUrl.addParam(TmdbAccount.PARAM_SESSION, sessionToken)
         val jsonBody = Utils.convertToJson(
             jsonMapper,
-            Collections.singletonMap("media_id", movieId.toString() + "")
+            Collections.singletonMap("media_id", movieId.toString() + ""),
         )
         return mapJsonResult(
             apiUrl,
             ResponseStatus::class.java,
-            jsonBody
+            jsonBody,
         )
     }
 
@@ -103,7 +103,7 @@ class TmdbLists(tmdbApi: TmdbApi?) : AbstractTmdbApi(tmdbApi!!) {
      */
     fun deleteMovieList(
         sessionToken: SessionToken?,
-        listId: String?
+        listId: String?,
     ): ResponseStatus {
         val apiUrl = ApiUrl(TMDB_METHOD_LIST, listId)
         apiUrl.addParam(TmdbAccount.PARAM_SESSION, sessionToken!!)
@@ -111,7 +111,7 @@ class TmdbLists(tmdbApi: TmdbApi?) : AbstractTmdbApi(tmdbApi!!) {
             apiUrl,
             ResponseStatus::class.java,
             null,
-            RequestMethod.DELETE
+            RequestMethod.DELETE,
         )
     }
 

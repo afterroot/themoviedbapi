@@ -27,7 +27,7 @@ object Utils {
         moviedb: NetworkMovie?,
         title: String,
         year: String,
-        maxDistance: Int = 0
+        maxDistance: Int = 0,
     ): Boolean {
         if (moviedb == null || StringUtils.isBlank(title)) {
             return java.lang.Boolean.FALSE

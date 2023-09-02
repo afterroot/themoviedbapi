@@ -23,9 +23,9 @@ class TmdbTimezones internal constructor(tmdbApi: TmdbApi?) : AbstractTmdbApi(tm
 
     data class TimeZone(
         @JsonProperty(
-            "iso_3166_1"
+            "iso_3166_1",
         ) val country: String,
-        @JsonProperty("zones") val zones: Array<String>
+        @JsonProperty("zones") val zones: Array<String>,
     ) :
         AbstractJsonMapping() {
         override fun equals(other: Any?): Boolean {

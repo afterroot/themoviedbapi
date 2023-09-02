@@ -24,7 +24,7 @@ data class Artwork(
     @JsonProperty("vote_count")
     var voteCount: Int = 0,
     @JsonProperty("flag")
-    var flag: String? = null
+    var flag: String? = null,
 ) : AbstractJsonMapping() {
     var artworkType = ArtworkType.POSTER
 }

@@ -22,20 +22,20 @@ class SearchRepository(val api: SearchApi) {
         query: String,
         includeAdult: Boolean = true,
         page: Int = 1,
-        language: String = Constants.DEFAULT_LANG
+        language: String = Constants.DEFAULT_LANG,
     ) = api.searchMovie(query, includeAdult, page, language)
 
     suspend fun searchTv(
         query: String,
         includeAdult: Boolean = true,
         page: Int = 1,
-        language: String = Constants.DEFAULT_LANG
+        language: String = Constants.DEFAULT_LANG,
     ) = api.searchTv(query, includeAdult, page, language)
 
     suspend fun searchPerson(
         query: String,
         includeAdult: Boolean = true,
         page: Int = 1,
-        language: String = Constants.DEFAULT_LANG
+        language: String = Constants.DEFAULT_LANG,
     ) = api.searchPerson(query, includeAdult, page, language)
 }

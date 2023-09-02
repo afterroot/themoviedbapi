@@ -30,7 +30,7 @@ class AuthRepository(val authApi: AuthApi) {
      * @see <a href="https://developers.themoviedb.org/4/auth/create-request-token">API Reference</a>
      */
     suspend fun createRequestToken(
-        requestBodyToken: RequestBodyToken = RequestBodyToken()
+        requestBodyToken: RequestBodyToken = RequestBodyToken(),
     ): ResponseRequestToken {
         return authApi.createRequestToken(requestBodyToken)
     }
@@ -40,7 +40,7 @@ class AuthRepository(val authApi: AuthApi) {
          * In order for a user to approve [ResponseRequestToken], direct user to TMDB Website
          */
         fun getAuthVerifyUrl(
-            token: ResponseRequestToken
+            token: ResponseRequestToken,
         ) = HttpUrl.Builder().scheme("https").host("www.themoviedb.org")
             .addPathSegment("auth").addPathSegment("access")
             .addQueryParameter("request_token", token.requestToken).build().toString()

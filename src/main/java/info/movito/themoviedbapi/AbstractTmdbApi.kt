@@ -27,7 +27,7 @@ abstract class AbstractTmdbApi internal constructor(protected val tmdbApi: TmdbA
         apiUrl: ApiUrl?,
         someClass: Class<T>?,
         jsonBody: String?,
-        requestMethod: String
+        requestMethod: String,
     ): T {
         val webpage = tmdbApi.requestWebPage(apiUrl!!, requestMethod)
 
@@ -67,7 +67,7 @@ abstract class AbstractTmdbApi internal constructor(protected val tmdbApi: TmdbA
         private val SUCCESS_STATUS_CODES: Collection<Int> = listOf(
             1, // Success
             12, // The item/record was updated successfully.
-            13 // The item/record was updated successfully.
+            13, // The item/record was updated successfully.
         )
     }
 }

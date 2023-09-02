@@ -37,7 +37,7 @@ interface MoviesApi {
     @GET("3/movie/{movie_id}")
     suspend fun getFullMovieInfo(
         @Path("movie_id") movieId: Int,
-        @Query("append_to_response") appendableResponses: String
+        @Query("append_to_response") appendableResponses: String,
     ): NetworkMovie
 
     @GET("3/movie/popular")
@@ -61,7 +61,7 @@ interface MoviesApi {
     @GET("3/movie/{movie_id}/recommendations")
     suspend fun getRecommended(
         @Path("movie_id") movieId: Int,
-        @Query("page") page: Int
+        @Query("page") page: Int,
     ): MovieResultsPage
 
     @GET("3/movie/{movie_id}/credits")

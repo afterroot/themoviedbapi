@@ -14,5 +14,5 @@ data class ProductionCountry(
     @JsonProperty("iso_3166_1")
     var isoCode: String? = null,
     @JsonProperty("name")
-    var name: String? = null
+    var name: String? = null,
 ) : AbstractJsonMapping()

@@ -19,7 +19,7 @@ data class Video(
     @JsonProperty("size")
     var size: Int? = null,
     @JsonProperty("type")
-    var type: String? = null
+    var type: String? = null,
 ) : NamedStringIdElement() {
     class Results : IdElement() {
         @JsonProperty("results")

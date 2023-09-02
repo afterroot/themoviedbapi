@@ -30,13 +30,13 @@ interface AuthApi {
 
     @POST("4/auth/request_token")
     suspend fun createRequestToken(
-        @Body requestBodyToken: RequestBodyToken
+        @Body requestBodyToken: RequestBodyToken,
     ): ResponseRequestToken
 
     @Headers("Content-Type: application/json;charset=utf-8")
     @POST("4/auth/access_token")
     suspend fun createAccessToken(
         @Header("Authorization") apiAccessToken: String,
-        @Body requestBodyToken: RequestBodyToken
+        @Body requestBodyToken: RequestBodyToken,
     ): ResponseAccessToken
 }

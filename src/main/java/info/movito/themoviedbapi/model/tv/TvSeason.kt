@@ -11,5 +11,5 @@ data class TvSeason(
     @JsonProperty("poster_path") var posterPath: String? = null,
     @JsonProperty("season_number") var seasonNumber: Int = 0,
     @JsonProperty("overview") var overview: String? = null,
-    @JsonProperty("episodes") var episodes: List<TvEpisode>? = null
+    @JsonProperty("episodes") var episodes: List<TvEpisode>? = null,
 ) : AbstractTvElement()

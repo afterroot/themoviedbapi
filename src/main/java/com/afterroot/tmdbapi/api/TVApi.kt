@@ -31,7 +31,7 @@ interface TVApi {
     @GET("3/tv/{id}")
     suspend fun getFullTvInfo(
         @Path("id") id: Int,
-        @Query("append_to_response") appendableResponses: String
+        @Query("append_to_response") appendableResponses: String,
     ): TvSeries
 
     @GET("3/tv/{id}/credits")
@@ -50,7 +50,7 @@ interface TVApi {
     suspend fun getEpisode(
         @Path("id") id: Int,
         @Path("season_number") season: Int,
-        @Path("episode_number") episode: Int
+        @Path("episode_number") episode: Int,
     ): TvEpisode
 
     @GET("3/tv/{id}/watch/providers")

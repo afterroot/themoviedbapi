@@ -82,7 +82,7 @@ data class TvSeries(
     var status: String? = null,
 
     @JsonProperty("content_ratings")
-    private var contentRatings: ContentRating.Results? = null
+    private var contentRatings: ContentRating.Results? = null,
 ) : AbstractTvElement(), Multi {
 
     override val mediaType: Multi.MediaType

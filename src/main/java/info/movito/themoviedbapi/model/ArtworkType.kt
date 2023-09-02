@@ -11,5 +11,5 @@ package info.movito.themoviedbapi.model
 enum class ArtworkType {
     POSTER, // Poster artwork
     BACKDROP, // Fan-Art/backdrop
-    PROFILE // PersonPeople image
+    PROFILE, // PersonPeople image
 }

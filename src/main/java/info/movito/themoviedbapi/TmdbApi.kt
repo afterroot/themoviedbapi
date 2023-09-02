@@ -37,7 +37,7 @@ class TmdbApi @JvmOverloads constructor(
      * Automatically retry after indicated amount of seconds if we hit the request limit.
      * See http://docs.themoviedb.apiary.io/introduction/request-rate-limiting for details
      */
-    private var autoRetry: Boolean = true
+    private var autoRetry: Boolean = true,
 ) {
     @Deprecated("Use new api from V2")
     var configuration: ImagesConfig

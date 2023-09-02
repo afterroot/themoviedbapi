@@ -19,5 +19,5 @@ import com.fasterxml.jackson.annotation.JsonProperty
 data class RequestToken(
     @JsonProperty("success") val isSuccess: Boolean,
     @JsonProperty("expires_at") val expireAt: String,
-    @JsonProperty("request_token") val token: String
+    @JsonProperty("request_token") val token: String,
 )

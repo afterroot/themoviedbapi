@@ -17,7 +17,7 @@ data class Credits(
     @JsonProperty("cast")
     var cast: List<PersonCast>? = null,
     @JsonProperty("guest_stars")
-    var guestStars: List<PersonCast>? = null
+    var guestStars: List<PersonCast>? = null,
 ) : IdElement() {
     /**
      * Convenience wrapper to get all people involved in the movie>

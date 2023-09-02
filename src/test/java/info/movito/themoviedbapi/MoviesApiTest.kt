@@ -18,7 +18,7 @@ class MoviesApiTest : AbstractTmdbApiTest() {
         val result = tmdb.movies.getMovie(
             ID_MOVIE_BLADE_RUNNER,
             LANGUAGE_ENGLISH,
-            *TmdbMovies.MovieMethod.values()
+            *TmdbMovies.MovieMethod.values(),
         )
         val productionCompany = result.productionCompanies?.get(0)
         Assert.assertEquals("Incorrect movie information", "Blade Runner", result.originalTitle)
@@ -127,7 +127,7 @@ class MoviesApiTest : AbstractTmdbApiTest() {
     fun testCreateImageUrl() {
         val (_, _, _, _, _, _, _, _, _, _, _, _, posterPath) = tmdb.movies.getMovie(
             ID_MOVIE_BLADE_RUNNER,
-            ""
+            "",
         )
         val result =
             createImageUrl(tmdb, posterPath, "original").toString()
@@ -162,7 +162,7 @@ class MoviesApiTest : AbstractTmdbApiTest() {
         val result: List<NetworkMovie?> = tmdb.movies.getSimilarMovies(
             ID_MOVIE_BLADE_RUNNER,
             LANGUAGE_DEFAULT,
-            0
+            0,
         ).results
         Assert.assertTrue("No similar movies found", !result.isEmpty())
     }

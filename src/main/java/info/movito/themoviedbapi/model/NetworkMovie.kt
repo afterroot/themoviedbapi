@@ -89,7 +89,7 @@ data class NetworkMovie(
     @JsonProperty("reviews")
     var reviews: ResultsPage<Reviews>? = null,
     @JsonProperty("lists")
-    var lists: ResultsPage<MovieList>? = null
+    var lists: ResultsPage<MovieList>? = null,
 ) : IdElement(), Multi {
     override val mediaType: Multi.MediaType
         get() = Multi.MediaType.MOVIE
