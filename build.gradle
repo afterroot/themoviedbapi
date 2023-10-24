@@ -17,11 +17,11 @@ ext {
 
 android {
     namespace "com.afterroot.tmdbapi"
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 33
+        targetSdkVersion 34
         resourceConfigurations += ["en"]
 
         consumerProguardFiles "consumer-rules.pro"
