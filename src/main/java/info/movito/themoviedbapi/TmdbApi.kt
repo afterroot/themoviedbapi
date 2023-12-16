@@ -7,7 +7,6 @@
 
 package info.movito.themoviedbapi
 
-import android.os.AsyncTask
 import com.afterroot.tmdbapi.TmdbTrending
 import info.movito.themoviedbapi.model.JobDepartment
 import info.movito.themoviedbapi.model.config.ImagesConfig
@@ -33,6 +32,7 @@ class TmdbApi @JvmOverloads constructor(
      * Get the API key that is to be used by this instance
      */
     private val apiKey: String,
+    private val okHttpClient: OkHttpClient,
     /**
      * Automatically retry after indicated amount of seconds if we hit the request limit.
      * See http://docs.themoviedb.apiary.io/introduction/request-rate-limiting for details
@@ -55,7 +55,7 @@ class TmdbApi @JvmOverloads constructor(
     fun requestWebPage(apiUrl: ApiUrl, method: String = RequestMethod.GET): String? {
         apiUrl.addParam(AbstractTmdbApi.PARAM_API_KEY, apiKey)
         return try {
-            GetResponse(method).execute(apiUrl.buildUrl().toString()).get()
+            getResponse(apiUrl.buildUrl().toString(), method)
         } catch (rcle: RequestCountLimitException) {
             if (autoRetry) {
                 Utils.sleep(rcle.retryAfter * 1000)
@@ -67,18 +67,19 @@ class TmdbApi @JvmOverloads constructor(
         }
     }
 
-    internal class GetResponse(val method: String = RequestMethod.GET, private val requestBody: RequestBody? = null) :
-        AsyncTask<String, Void, String>() {
-        override fun doInBackground(vararg params: String): String {
-            val request = Request.Builder()
-                .url(params[0]).method(method, requestBody)
-                .build()
+    private fun getResponse(
+        url: String,
+        method: String = RequestMethod.GET,
+        requestBody: RequestBody? = null,
+    ): String {
+        val request = Request.Builder()
+            .url(url).method(method, requestBody)
+            .build()
 
-            OkHttpClient().newCall(request).execute().use { response ->
-                if (!response.isSuccessful) throw IOException("Unexpected code $response")
+        okHttpClient.newCall(request).execute().use { response ->
+            if (!response.isSuccessful) throw IOException("Unexpected code $response")
 
-                return response.body.string()
-            }
+            return response.body.string()
         }
     }
 
