@@ -60,7 +60,7 @@ public class MiscApiTest extends AbstractTmdbApiTest {
         // wait before and after to
         Utils.sleep(10000);
 
-        TmdbApi tmdb = new TmdbApi(getApiKey(), false);
+        TmdbApi tmdb = new TmdbApi(getApiKey(), okHttpClient,false);
 
 
         for (int i = 0; i < 50; i++) {
@@ -202,4 +202,3 @@ public class MiscApiTest extends AbstractTmdbApiTest {
         assertFalse("No genre movies found", result.isEmpty());
     }
 }
-

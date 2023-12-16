@@ -5,10 +5,13 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 
+import okhttp3.OkHttpClient;
+
 
 public class AbstractTmdbApiTest {
 
     protected static TmdbApi tmdb;
+    protected static OkHttpClient okHttpClient;
 
     // Test data
     protected static final int ID_MOVIE_BLADE_RUNNER = 78;
@@ -48,6 +51,8 @@ public class AbstractTmdbApiTest {
     public static void setUpClass() throws Exception {
         apiKey = System.getenv("TMDB_API");
 
+        okHttpClient = new OkHttpClient().newBuilder().build();
+
         if (StringUtils.isBlank(apiKey)) {
             String g = "Missing api key: To run test you need to provide the key as environment variable named 'TMDB_API' " +
                     "and you have to make sure that this is key relates to a linked application";
@@ -55,7 +60,7 @@ public class AbstractTmdbApiTest {
             throw new RuntimeException(g);
         }
 
-        tmdb = new TmdbApi(apiKey);
+        tmdb = new TmdbApi(apiKey, okHttpClient);
     }
 
 
