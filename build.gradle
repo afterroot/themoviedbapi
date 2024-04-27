@@ -63,7 +63,7 @@ dependencies {
     implementation "com.google.guava:guava:31.1-jre"
 
     implementation "org.apache.commons:commons-lang3:3.12.0"
-    implementation "commons-codec:commons-codec:1.15"
+    implementation "commons-codec:commons-codec:1.17.0"
 
     implementation "androidx.room:room-runtime:2.5.0"
     kapt "androidx.room:room-compiler:2.5.0"
